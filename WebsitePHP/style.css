@@ -1,0 +1,23 @@
+h1 {
+    color: darkblue;
+    background-color: beige;
+    padding: 50px;
+}
+
+h2 {
+    background-color: beige;
+    padding: 10px;
+}
+
+@media screen and (min-width: 701px) and (max-width: 900px){
+    h1 {
+        color: darkblue;
+        background-color: lightpink;
+        padding: 50px;
+    }
+
+    h2 {
+        background-color: lightpink;
+        padding: 10px;
+    }
+}
