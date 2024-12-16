@@ -3,9 +3,13 @@
 ## 1) Hilfe/Impressum
 
 - a) Hilfeseite mit Benutzeranleitung bzw. FAQs ist vorhanden
+    - vorhanden, aber style passt nicht
 - b) Impressum mit sinnvollem Inhalt ist angelegt
+    - gleiches style Problem wie oben
 - c) Impressum enthält Bilder und Namen der Studierenden
+    - Yueting ja, Franziska nein
 - d) Hilfe & Impressum sind jederzeit (einfach) erreichbar
+    - ja, liegen im footer.php
 
 ## 2) Registrierung
 

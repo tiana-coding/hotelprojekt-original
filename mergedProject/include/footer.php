@@ -5,8 +5,8 @@
       <li class="nav-item"><a href="index.php" class="nav-link px-2 text-body-secondary fw-bolder">Home</a></li>
       <li class="nav-item"><a href="zimmer.php" class="nav-link px-2 text-body-secondary fw-bolder">Zimmer buchen</a></li>
       <li class="nav-item"><a href="kontakt.php" class="nav-link px-2 text-body-secondary fw-bolder">Kontakt</a></li>
-      <li class="nav-item"><a href="hilfeseite.php" class="nav-link px-2 text-body-secondary fw-bolder">FAQs</a></li>
-      <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-body-secondary fw-bolder">Impressum</a></li>
+      <li class="nav-item"><a href="include/hilfeseite.php" class="nav-link px-2 text-body-secondary fw-bolder">FAQs</a></li>
+      <li class="nav-item"><a href="include/impressum.php" class="nav-link px-2 text-body-secondary fw-bolder">Impressum</a></li>
       <li class="nav-item"><a href="blog.php" class="nav-link px-2 text-body-secondary fw-bolder">Über uns</a></li>
     </ul>
     
