@@ -1,5 +1,9 @@
 # Überblick:
 
+## Notizen Franziska Montag, 16.12., 17:00
+
+- einige erste Änderungen in MergedProject vorgenommen, Index, Impressum und FAQs funktionieren (fast)
+
 ## Notizen Franziska Montag, 16.12., 16:00
 
 - Ich hab's geschafft, direkt aus Visual Studio zu commiten, also muss gar nicht über den Terminal passieren
