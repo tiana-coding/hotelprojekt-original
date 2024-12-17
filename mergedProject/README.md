@@ -8,6 +8,8 @@ Nach dem Dateinamen hab ich ein (Y) für Yueting und ein (F) für Franziska ange
 - nav.php (Y)
 - hilfeseite.php (Y)
 - impressum.php (Y)
+- footer.php (Y)
+- header.php (Y)
 
 ## Änderungen
 
@@ -15,6 +17,7 @@ Nach dem Dateinamen hab ich ein (Y) für Yueting und ein (F) für Franziska ange
 
 - nav.php: Pfad für index.php geändert
 - footer.php: Pfad für index.php geändert
+- header.php: styles.css als absoluten Pfad eingebunden, jetzt passt es auch bei Impressum und Hilfe
 
 ### Franziska 16.12.24
 
