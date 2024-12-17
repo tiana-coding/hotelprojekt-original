@@ -1,5 +1,9 @@
 # Überblick:
 
+## Notizen Franziska Dienstag, 17.12., 11:20
+
+- einige Pfadangaben verändert, Punkt 1) der Abnahmematrix bald fertig
+
 ## Notizen Franziska Montag, 16.12., 17:00
 
 - einige erste Änderungen in MergedProject vorgenommen, Index, Impressum und FAQs funktionieren (fast)
