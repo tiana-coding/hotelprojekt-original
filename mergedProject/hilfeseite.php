@@ -1,5 +1,6 @@
-<?php include 'header.php';?>
-<?php include 'nav.php';?>
+<?php include 'include/nav.php';?>
+
+<?php include 'include/header.php';?>
 
 <div class="container-fluid py-5 my-3 mx-auto">
     <h2>Hilfebereich</h2>
@@ -36,5 +37,5 @@
 </div>
     
 <div class="container-fluid my-5 py-4 bg-primary">
-  <?php include 'footer.php';?>
+  <?php include 'include/footer.php';?>
 </div>

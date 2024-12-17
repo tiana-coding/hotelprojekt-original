@@ -1,5 +1,7 @@
-<?php include 'header.php';?>
-<?php include 'nav.php';?>
+<?php include 'include/nav.php';?>
+
+<?php include 'include/header.php';?>
+
 <div class ="container-fluid my-3 py-5" id="imprint">
         <h1>Impressum</h1>
         <p class="fw-bold">Offenlegungspflicht gemäß § 25 Mediengesetz und Informationspflicht gemäß § 5 E-Commerce-Gesetz:</p>
@@ -46,5 +48,5 @@
         
 </div>    
 <div class="container-fluid my-5 py-4 bg-primary">
-  <?php include 'footer.php';?>
+  <?php include 'include/footer.php';?>
 </div>
