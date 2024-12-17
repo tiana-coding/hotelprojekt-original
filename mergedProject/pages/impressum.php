@@ -1,6 +1,6 @@
-<?php include 'include/nav.php';?>
+<?php include '../include/nav.php';?>
 
-<?php include 'include/header.php';?>
+<?php include '../include/header.php';?>
 
 <div class ="container-fluid my-3 py-5" id="imprint">
         <h1>Impressum</h1>
@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="card bg-grey mb-3" style="max-width: 15rem;">
             
-                <img class="card_img"  src="res/assets/img/yueting_liu.jpg" alt="manager">
+                <img class="card_img"  src="../res/assets/img/yueting_liu.jpg" alt="manager">
                 <div class="card_caption">
                     <p class="text-center justify-content-center pt-1">Yueting Liu</p>
                     <p class="text-center justify-content-center">Geschäftsführerin</p>
@@ -48,5 +48,5 @@
         
 </div>    
 <div class="container-fluid my-5 py-4 bg-primary">
-  <?php include 'include/footer.php';?>
+  <?php include '../include/footer.php';?>
 </div>

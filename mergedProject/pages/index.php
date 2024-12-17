@@ -1,7 +1,7 @@
-<?php include 'include/header.php';?>
+<?php include '../include/header.php';?>
 
   <!-- Navbar -->
-<?php include 'include/nav.php';?>
+<?php include '../include/nav.php';?>
   <!-- \Navbar -->
 
   <!-- First look at the page -->
@@ -41,34 +41,34 @@
     
           <div class="col-12 col-md-4">
             <div class="img-container rounded-3">
-              <img src="res/assets/img/1.jpg" alt="hotel img" class="img-fluid">
+              <img src="../res/assets/img/1.jpg" alt="hotel img" class="img-fluid">
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="img-container rounded-3">
-              <img src="res/assets/img/2.jpg" alt="hotel img" class="img-fluid">
+              <img src="../res/assets/img/2.jpg" alt="hotel img" class="img-fluid">
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="img-container rounded-3">
-              <img src="res/assets/img/3.jpg" alt="hotel img" class="img-fluid">
+              <img src="../res/assets/img/3.jpg" alt="hotel img" class="img-fluid">
             </div>
           </div>
         </div>
         <div class="row g-3 align-items-center ">
           <div class="col-12 col-md-4">
             <div class="img-container rounded-3">
-              <img src="res/assets/img/4.jpg" alt="hotel img" class="img-fluid">
+              <img src="../res/assets/img/4.jpg" alt="hotel img" class="img-fluid">
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="img-container rounded-3">
-              <img src="res/assets/img/5.jpg" alt="hotel img" class="img-fluid">
+              <img src="../res/assets/img/5.jpg" alt="hotel img" class="img-fluid">
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="img-container rounded-3">
-              <img src="res/assets/img/6.jpg" alt="hotel img" class="img-fluid">
+              <img src="../res/assets/img/6.jpg" alt="hotel img" class="img-fluid">
             </div>
           </div>
       </div>
@@ -115,7 +115,7 @@
 <!--social media icon-->
 <!--social media icon-->
 <div class="container-fluid my-5 py-4 bg-primary">
-  <?php include 'include/footer.php';?>
+  <?php include '../include/footer.php';?>
 </div>
 
 

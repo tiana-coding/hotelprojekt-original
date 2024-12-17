@@ -15,7 +15,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="../index.php">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="site_register.php">Registrierung</a></li>
+        <li class="nav-item"><a class="nav-link" href="pages/fct_register.php">Registrierung</a></li>
         <li class="nav-item"><a class="nav-link" href="site_impressum.php">Impressum</a></li>
         <li class="nav-item"><a class="nav-link" href="site_help.php">Hilfe</a></li>
         
