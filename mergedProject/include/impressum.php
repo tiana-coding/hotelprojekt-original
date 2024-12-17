@@ -45,4 +45,6 @@
         </div>
         
 </div>    
-<?php include 'footer.php';?>
+<div class="container-fluid my-5 py-4 bg-primary">
+  <?php include 'footer.php';?>
+</div>

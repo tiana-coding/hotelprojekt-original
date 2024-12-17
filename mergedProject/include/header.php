@@ -15,5 +15,3 @@
         <link href="res/css/styles.css" rel="stylesheet">
     </head>
 <body id="page-top">
-
-

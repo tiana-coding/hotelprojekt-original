@@ -11,6 +11,11 @@ Nach dem Dateinamen hab ich ein (Y) für Yueting und ein (F) für Franziska ange
 
 ## Änderungen
 
+### Franziska 17.12.24
+
+- nav.php: Pfad für index.php geändert
+- footer.php: Pfad für index.php geändert
+
 ### Franziska 16.12.24
 
 - index.php: Pfad zu den Bildern korrigiert
