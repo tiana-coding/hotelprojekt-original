@@ -15,6 +15,14 @@
                     <p class="text-center justify-content-center">Geschäftsführerin</p>
                 </div>    
             </div>
+            <div class="card bg-grey mb-3" style="max-width: 15rem;">
+            
+                <img class="card_img"  src="../res/assets/img/harich_franziska.jpg" alt="manager2">
+                <div class="card_caption">
+                    <p class="text-center justify-content-center pt-1">Franziska Harich</p>
+                    <p class="text-center justify-content-center">Geschäftsführer Stellvertreterin</p>
+                </div>    
+            </div>
         </div>    
             <div class="content">
             <h2>Musterstraße 12</h2>
