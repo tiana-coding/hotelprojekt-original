@@ -9,10 +9,10 @@
     - ~~gleiches style Problem wie oben~~
     - läuft!
 - c) Impressum enthält Bilder und Namen der Studierenden
-    - Yueting ja, ~~Franziska nein - nächste Baustelle~~~
+    - Yueting ja, ~~Franziska nein - nächste Baustelle~~
     - läuft!
 - d) Hilfe & Impressum sind jederzeit (einfach) erreichbar
-    - ja, liegen im footer.php - ~~fast, Link geht nur von index.php aus~~~
+    - ja, liegen im footer.php - ~~fast, Link geht nur von index.php aus~~
     - läuft!
 
 ## 2) Registrierung
