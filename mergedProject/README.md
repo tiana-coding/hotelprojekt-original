@@ -13,6 +13,7 @@ Nach dem Dateinamen hab ich ein (Y) für Yueting und ein (F) für Franziska ange
 - blog.php (Y)
 - fct_login.php (F)
 - fct_register.php (F)
+- fct_session.php (F)
 
 ## Änderungen
 

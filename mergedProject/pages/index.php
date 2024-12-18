@@ -1,7 +1,7 @@
 <?php include '../include/header.php';?>
 
   <!-- Navbar -->
-<?php include '../include/nav.php';?>
+<?php include '../include/navbar.php';?>
   <!-- \Navbar -->
 
   <!-- First look at the page -->

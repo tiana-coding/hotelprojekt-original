@@ -1,3 +1,9 @@
+<?php include('fct_session.php'); ?>
+
+<?php
+session_start();
+?>
+
 <nav class="navbar navbar-expand-sm navbar-light bg-primary">
   <div class="container-fluid">
       <!-- Links -->
