@@ -58,4 +58,6 @@ Für Naturliebhaber gibt es zahlreiche Wander- und Radwege, die durch atemberaub
     <?php endif; ?>
 </div>
 
-<?php include("../include/footer.php"); ?>
+<div class="container-fluid my-5 py-4 bg-primary">
+  <?php include '../include/footer.php';?>
+</div>
