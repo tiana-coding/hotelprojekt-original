@@ -10,8 +10,25 @@ Nach dem Dateinamen hab ich ein (Y) für Yueting und ein (F) für Franziska ange
 - impressum.php (Y)
 - footer.php (Y)
 - header.php (Y)
+- blog.php (Y)
+- fct_login.php (F)
+- fct_register.php (F)
 
 ## Änderungen
+
+### Franziska 18.12.24
+
+- Impressum vervollständigt
+- Blog (hardcoded) zum laufen gebracht
+- Datenbank an dem Ende zum laufen gebracht
+
+### Yueting 18.12.24
+
+- mit Datenbank verbunden
+- uploads Ordner hinzugefügt
+- Blog hinzugefügt
+- Ordner pages angelegt
+- login page & register page hinzugefügt
 
 ### Franziska 17.12.24
 

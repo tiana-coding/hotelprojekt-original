@@ -9,17 +9,31 @@
     - ~~gleiches style Problem wie oben~~
     - läuft!
 - c) Impressum enthält Bilder und Namen der Studierenden
-    - Yueting ja, Franziska nein - nächste Baustelle
+    - Yueting ja, ~~Franziska nein - nächste Baustelle~~~
+    - läuft!
 - d) Hilfe & Impressum sind jederzeit (einfach) erreichbar
-    - ja, liegen im footer.php - fast, Link geht nur von index.php aus
+    - ja, liegen im footer.php - ~~fast, Link geht nur von index.php aus~~~
+    - läuft!
 
 ## 2) Registrierung
 
-- a) Formular enthält...
+- a) Formular enthält alle geforderten Daten
+    - jep, läuft
+- b) Client- & serverseitige Datenüberprüfung
+- c) Passwort doppelt eingeben und verschlüsseln
+- d) Admin-User & Rechteunterscheidung
 
 ## 3) User-Login
 
+- a) Login-Formular vorhanden
+    - jep, hab'n wir
+- b) Login-Status sichtbar, Logout-Button vorhanden
+- c) Features abhängig vom eingeloggten User
+
 ## 4) Profilverwaltung
+
+- a) Profildaten einsehen & bearbeiten
+- b) Passwort ändern (altes PW erforderlich)
 
 ## 5) News-Beiträge von Admins
 
