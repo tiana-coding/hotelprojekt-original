@@ -1,7 +1,8 @@
-<!--php-->
-
 <?php 
 session_start(); 
+$error_msg = "";
+$success_msg = "";
+require_once '../config/dbaccess.php';//datenbank in register.php einbinden
 
 // Wenn das Formular abgesendet wurde
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,21 +24,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<p class='text-danger'>Ungültige E-Mail-Adresse.</p>";
     } else {
+        //Validierung erfolgreich -> DB-Zugriff Prepared Statements
+
+
         // Passwort sicher Hashen
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-       
-        $_SESSION['username'] = $username;
-        $_SESSION['email'] = $email;
-        $_SESSION['success_msg'] = "Ihre Registierung war erfolgreich.";
-        $_SESSION['error_msg'] ="Error.";
+       //check gibt es schon eine username oder useremail schon in der db?
+        $sql_check = "SELECT id from users WHERE username = ? OR useremail = ? ";
+        $stmt_check = $db_obj->prepare($sql_check);
+        $stmt_check-> bind_param("ss", $username, $email);
+        $stmt_check->execute();
+        $stmt_check->store_result();
 
-       
+        //wenn daten schon vorliegt
+        if($stmt_check->num_rows>0){
+          $error_msg="Benuzer existiert, loggen Sie sich bitte ein.";
+        } 
+        else{//insert user into table
+              $sql_insert = "INSERT INTO users(`username`, `password`, `useremail`) VALUES (?,?,?)";
+              $stmt_insert = $db_obj->prepare($sql_insert);
+              $stmt_insert->bind_param("sss", $username, $hashed_password, $email);
+
+            //wenn kundendaten hinzugefügt wurde
+           if($stmt_insert->execute()) {
+              $success_msg = "Ihre Registrierung war erfolgreich. Sie können sich einloggen";
+            
+    
+           } else{
+            $error_msg="Die Registrierung ist fehlgeschlagen, versuchen Sie es noch mal.";
+           }
+
+           $stmt_insert->close();
+        }
+        $stmt_check->close();
+
+
+
+
   
     }
-    header('Location: welcome.php');//weiterleitung zur welcome seite
     
-    exit();
 }
 ?>
 
@@ -47,6 +74,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php include '../include/nav.php';?>
 <div  class="container-fluid my-5" style= "max-width:640px;">
   <h2 class="text-center">Kundenregistrierung</h2>
+  <!-- registrierung fehlgeschlagen, fehlermeldung -->
+  <?php if(!empty($error_msg)): ?>
+    <div class="alert alert-danger"><?php echo $error_msg;?></div>
+  <?php endif;?> 
+
+  <?php if(!empty($success_msg)): ?>
+    <div class="alert alert-sucess"><?php echo $success_msg;?></div>
+  <?php endif;?>  
+
+
   <form class="container border rounded bg-grey border-shadow py-5 my-5" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   
     <div class="mb-3">
