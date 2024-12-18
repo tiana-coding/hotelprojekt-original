@@ -10,7 +10,7 @@ $news_items = [
 Beginnen Sie Ihren Tag mit einer belebenden Yoga-Session in unserem lichtdurchfluteten Studio oder lassen Sie den Stress bei einer wohltuenden Massage hinter sich. Unsere erfahrenen Therapeuten stehen Ihnen mit individuellen Behandlungen zur Verfügung, die auf Ihre Bedürfnisse abgestimmt sind. Nach einer entspannenden Sitzung können Sie im Whirlpool relaxen oder einen Spaziergang durch unsere gepflegten Gartenanlagen genießen.
 
 Für das leibliche Wohl sorgen unsere gesunden und köstlichen Speisen im hoteleigenen Restaurant. Frische, regionale Zutaten und kreative Rezepte machen jedes Gericht zu einem Genuss. Lassen Sie sich von unserem Wellness-Angebot verwöhnen und tanken Sie neue Energie im Hotel Blick und Glück – Ihrem Rückzugsort für Körper und Seele.",
-        "image" => "uploads/thumbnails/3.jpg"
+        "image" => "../uploads/thumbnails/3.jpg"
     ],
     [
         "title" => "Gutes Essen macht gute Laune",
@@ -19,14 +19,14 @@ Für das leibliche Wohl sorgen unsere gesunden und köstlichen Speisen im hotele
 Beginnen Sie Ihren Tag mit einem reichhaltigen Frühstücksbuffet, das von regionalen Spezialitäten bis hin zu internationalen Köstlichkeiten alles bietet. Für das Mittag- und Abendessen bieten wir wechselnde Menüs, die saisonal angepasst werden und die besten Zutaten der Region hervorheben.
 
 Besonders stolz sind wir auf unsere Themenabende, bei denen Sie besondere kulinarische Erlebnisse genießen können. Ob mediterrane Nächte, asiatische Fusionsküche oder traditionelle deutsche Hausmannskost – lassen Sie sich von unseren kreativen Gerichten überraschen",
-        "image" => "uploads/thumbnails/6.jpg"
+        "image" => "../uploads/thumbnails/6.jpg"
     ],
     [
         "title" => "Gutes Essen macht gute Laune",
         "text" => "Das Hotel Blick und Glück liegt ideal gelegen, um sowohl Erholungssuchende als auch Abenteuerlustige gleichermaßen zu begeistern. Die malerische Umgebung bietet eine Vielzahl von Aktivitäten, die Ihren Aufenthalt unvergesslich machen.
 
 Für Naturliebhaber gibt es zahlreiche Wander- und Radwege, die durch atemberaubende Landschaften führen. Erkunden Sie die umliegenden Wälder, Seen und Berge und genießen Sie die frische Luft und die beeindruckende Natur. Im Winter verwandelt sich die Region in ein Paradies für Skifahrer und Snowboarder mit bestens präparierten Pisten und gemütlichen Berghütten.",
-        "image" => "uploads/thumbnails/hero.jpg"
+        "image" => "../uploads/thumbnails/hero.jpg"
     ],
 ];
 ?>
