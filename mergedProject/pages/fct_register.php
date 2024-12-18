@@ -1,13 +1,13 @@
 <!--php-->
 
 <?php 
-include('../include/fct_session.php'); 
+session_start(); 
 
 // Wenn das Formular abgesendet wurde
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Benutzereingaben validieren
-    $username = trim($_POST['username']);
-    $email = trim($_POST['email']);
+    $username = htmlspecialchars(trim($_POST['username']));
+    $email = htmlspecialchars(trim($_POST['email']));
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
@@ -23,16 +23,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<p class='text-danger'>Ungültige E-Mail-Adresse.</p>";
     } else {
-        // Passwort sicher speichern (zum Beispiel Hashen)
+        // Passwort sicher Hashen
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Benutzerdaten in der Session speichern (Simulieren eines Registrierungsprozesses ohne DB)
+       
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
-        $_SESSION['password'] = $hashed_password; // Auch das Passwort wird gespeichert, aber sicher gehasht
+        $_SESSION['success_msg'] = "Ihre Registierung war erfolgreich.";
+        $_SESSION['error_msg'] ="Error.";
 
-        //echo "<p class='text-success'>Registrierung erfolgreich! Willkommen, " . htmlspecialchars($username) . ".</p>";
+       
+  
     }
+    header('Location: welcome.php');//weiterleitung zur welcome seite
+    
+    exit();
 }
 ?>
 
@@ -42,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php include '../include/nav.php';?>
 <div  class="container-fluid my-5" style= "max-width:640px;">
   <h2 class="text-center">Kundenregistrierung</h2>
-  <form class="container border rounded bg-grey border-shadow py-5 my-5" method="POST" action="site_register.php">
+  <form class="container border rounded bg-grey border-shadow py-5 my-5" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
