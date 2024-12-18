@@ -6,10 +6,10 @@
           <a class="nav-link" href="index.php"><h4>Home</h4></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/zimmer.php"><h4>Zimmer</h4></a>
+          <a class="nav-link" href="../pages/zimmer.php"><h4>Zimmer</h4></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/blog.php"><h4>News</h4></a>
+          <a class="nav-link" href="../pages/blog.php"><h4>News</h4></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="include/dashboard.php" role="button" data-bs-toggle="dropdown"><h4>Login</h4></a>
