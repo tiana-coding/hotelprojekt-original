@@ -53,6 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //wenn kundendaten hinzugefügt wurde
            if($stmt_insert->execute()) {
               $success_msg = "Ihre Registrierung war erfolgreich. Sie können sich einloggen";
+              header("Location: welcome.php");
+              exit();
             
     
            } else{
