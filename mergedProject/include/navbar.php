@@ -14,10 +14,18 @@ session_start();
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="../pages/index.php"><h4>Home</h4></a></li>
-        <li class="nav-item"><a class="nav-link" href="../include/blog.php"><h4>News</h4></a></li>
-        <li class="nav-item"><a class="nav-link" href="../pages/impressum.php"><h4>Impressum</h4></a></li>
-        <li class="nav-item"><a class="nav-link" href="../include/site_help.php"><h4>Hilfe</h4></a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/index.php"><h4>Home</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/include/site_blog.php"><h4>News</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/include/site_impressum.php"><h4>Impressum</h4></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/include/site_help.php"><h4>Hilfe</h4></a>
+        </li>
         
         <?php 
         session_start();
@@ -34,4 +42,3 @@ session_start();
     </div>
   </div>
 </nav>
-
