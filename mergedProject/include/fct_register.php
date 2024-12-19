@@ -70,8 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- Sign up/Registrierungsformular -->
 <?php include '../include/header.php';?>
-  <!-- Navbar -->
-<?php include '../include/nav.php';?>
+
 <div  class="container-fluid my-5" style= "max-width:640px;">
   <h2 class="text-center">Kundenregistrierung</h2>
   <!-- registrierung fehlgeschlagen, fehlermeldung -->
@@ -105,6 +104,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <button type="submit" class="btn btn-primary">Registrieren</button>
   </form>
 </div>  
-<div class="container-fluid my-5 py-4 bg-primary">
+
   <?php include '../include/footer.php';?>
-</div>
