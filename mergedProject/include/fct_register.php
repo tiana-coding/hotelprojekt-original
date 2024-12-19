@@ -3,6 +3,10 @@ session_start();
 $error_msg = "";
 $success_msg = "";
 require_once '../config/dbaccess.php';//datenbank in register.php einbinden
+if(!$db_obj){
+  die("Es besteht keine verbindung zur Datenbank.");
+}
+
 
 // Wenn das Formular abgesendet wurde
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
