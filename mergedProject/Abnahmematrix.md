@@ -20,15 +20,20 @@
 - a) Formular enthält alle geforderten Daten
     - jep, läuft
 - b) Client- & serverseitige Datenüberprüfung
+    - I mean it works, so I guess yes
 - c) Passwort doppelt eingeben und verschlüsseln
+    - funktioniert
 - d) Admin-User & Rechteunterscheidung
+    - not yet
 
 ## 3) User-Login
 
 - a) Login-Formular vorhanden
     - jep, hab'n wir
 - b) Login-Status sichtbar, Logout-Button vorhanden
+    - Button vorhanden, Funktionalität noch nicht
 - c) Features abhängig vom eingeloggten User
+    - not yet
 
 ## 4) Profilverwaltung
 

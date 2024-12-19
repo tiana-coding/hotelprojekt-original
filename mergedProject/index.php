@@ -13,7 +13,9 @@
           <p class="lead mb-4 display-7 fw-bold">Resort und SPA Hotel</p>
         </div> 
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg fw-bolder px-4"><a href="include/blog.php" class="text-center text-white text-decoration-none">Mehr erfahren</a></button>
+            <button type="button" class="btn btn-primary btn-lg fw-bolder px-4">
+              <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_blog.php'); ?>" class="text-center text-white text-decoration-none">Mehr erfahren</a>
+            </button>
             <button type="button" class="btn btn-primary btn-lg fw-bolder px-4"><a href="include/zimmer.php" class="text-center text-white text-decoration-none">Zimmer buchen</a></button>
             
         </div>  
