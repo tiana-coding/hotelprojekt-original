@@ -15,16 +15,20 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/index.php"><h4>Home</h4></a>
+          <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/index.php'); ?>">
+            <h4>Home</h4></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/include/site_blog.php"><h4>News</h4></a>
+          <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_blog.php'); ?>">
+            <h4>News</h4></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/include/site_impressum.php"><h4>Impressum</h4></a>
+          <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_impressum.php'); ?>">
+            <h4>Impressum</h4></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $_SERVER['DOCUMENT_ROOT']; ?>/include/site_help.php"><h4>Hilfe</h4></a>
+          <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_help.php'); ?>">
+            <h4>Hilfe</h4></a>
         </li>
         
         <?php 
