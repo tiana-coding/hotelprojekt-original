@@ -1,5 +1,3 @@
-<?php include '../include/nav.php';?>
-
 <?php include '../include/header.php';?>
 
 <div class ="container-fluid my-3 py-5" id="imprint">
@@ -53,6 +51,4 @@
         </div>
         
 </div>    
-<div class="container-fluid my-5 py-4 bg-primary">
-  <?php include '../include/footer.php';?>
-</div>
+<?php include '../include/footer.php';?>

@@ -2,16 +2,25 @@
 <div class="container-fluid my-5 py-4 bg-primary">
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="../index.php" class="nav-link px-2 text-body-secondary fw-bolder">Home</a></li>
+      <li class="nav-item">
+        <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/index.php'); ?>"
+         class="nav-link px-2 text-body-secondary fw-bolder">Home</a>
+        </li>
       <li class="nav-item"><a href="zimmer.php" class="nav-link px-2 text-body-secondary fw-bolder">Zimmer buchen</a></li>
       <li class="nav-item"><a href="kontakt.php" class="nav-link px-2 text-body-secondary fw-bolder">Kontakt</a></li>
-      <li class="nav-item"><a href="site_help.php" class="nav-link px-2 text-body-secondary fw-bolder">FAQs</a></li>
-      <li class="nav-item"><a href="site_impressum.php" class="nav-link px-2 text-body-secondary fw-bolder">Impressum</a></li>
-      <li class="nav-item"><a href="site_blog.php" class="nav-link px-2 text-body-secondary fw-bolder">Über uns</a></li>
+      <li class="nav-item">
+        <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_help.php'); ?>" class="nav-link px-2 text-body-secondary fw-bolder">FAQs</a>
+      </li>
+      <li class="nav-item">
+        <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_impressum.php'); ?>" class="nav-link px-2 text-body-secondary fw-bolder">Impressum</a>
+      </li>
+      <li class="nav-item">
+        <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_blog.php'); ?>" class="nav-link px-2 text-body-secondary fw-bolder">Über uns</a>
+      </li>
     </ul>
     
   </footer>
-  <div class="container-fluid">
+  <div class="container-fluid my-5 py-4 bg-primary">
         <p class="text-center text-body-secondary fw-bolder">&copy; 2024 Blick & Glück</p>
   </div>
 </div>
