@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- login -->
 <?php include '../include/header.php';?>
-<?php include '../include/nav.php';?>
+
 <div class="container-fluid my-5" >
   <h2 class="text-center">Login</h2>
  
@@ -72,6 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </div> 
-<div class="container-fluid my-5 py-4 bg-primary">
+
+
   <?php include '../include/footer.php';?>
-</div>
