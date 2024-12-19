@@ -6,7 +6,7 @@ session_start();
 
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src="../res/assets/img/pct_hotel-emoji.png" height="28px"/></a>
+    <a class="navbar-brand" href="../pages/index.php"><img src="../res/assets/img/pct_hotel-emoji.png" height="28px"/></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,11 +14,10 @@ session_start();
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="../include/index.php"><h4>Home</h4></a></li>
-        <li class="nav-item"><a class="nav-link" href="../pages/blog.php"><h4>News</h4></a></li>
-        <li class="nav-item"><a class="nav-link" href="pages/fct_register.php">Registrierung</a></li>
-        <li class="nav-item"><a class="nav-link" href="site_impressum.php">Impressum</a></li>
-        <li class="nav-item"><a class="nav-link" href="site_help.php">Hilfe</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/index.php"><h4>Home</h4></a></li>
+        <li class="nav-item"><a class="nav-link" href="../include/blog.php"><h4>News</h4></a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/impressum.php"><h4>Impressum</h4></a></li>
+        <li class="nav-item"><a class="nav-link" href="../include/site_help.php"><h4>Hilfe</h4></a></li>
         
         <?php 
         session_start();
@@ -28,7 +27,8 @@ session_start();
           <li class="nav-item"><a class="nav-link" href="site_logout.php">Logout</a></li>
           <li class="nav-item"><span class="navbar-text">Willkommen, <?= htmlspecialchars($_SESSION['username']); ?>!</span></li>
         <?php else: ?>
-          <li class="nav-item"><a class="nav-link" href="site_login.php">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="../include/fct_login.php"><h4>Login</h4></a></li>
+          <li class="nav-item"><a class="nav-link" href="../include/fct_register.php"><h4>Registrierung</h4></a></li>
         <?php endif; ?>
       </ul>
     </div>

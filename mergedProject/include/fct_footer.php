@@ -1,4 +1,3 @@
-<!-- Copyright Section-->
 <div class="container-fluid">
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -15,7 +14,3 @@
         <p class="text-center text-body-secondary fw-bolder">&copy; 2024 Blick & Glück</p>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-        
