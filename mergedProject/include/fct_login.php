@@ -23,8 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Überprüfen, ob die Passwörter übereinstimmen
     
     else {
-        
-
        //check gibt es schon den username in der db?
         $sql_check = "SELECT password from users WHERE username = ? ";
         $stmt_check = $db_obj->prepare($sql_check);
@@ -43,8 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           }else{
             $error_msg = "ungültige Anmededaten.";
           }
-  
-      
           }
         } 
          
@@ -72,6 +68,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </div> 
-
 
   <?php include '../include/footer.php';?>

@@ -35,9 +35,11 @@ session_start();
         <?php 
         session_start();
         if (isset($_SESSION['username'])): ?>
-          <li class="nav-item"><a class="nav-link" href="site_rooms.php">Zimmerreservierung</a></li>
           <li class="nav-item"><a class="nav-link" href="site_upload.php">Bildupload</a></li>
-          <li class="nav-item"><a class="nav-link" href="site_logout.php">Logout</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_logout.php'); ?>">
+              <h4>Logout</h4></a>
+          </li>
           <li class="nav-item"><span class="navbar-text">Willkommen, <?= htmlspecialchars($_SESSION['username']); ?>!</span></li>
         <?php else: ?>
           <li class="nav-item">
