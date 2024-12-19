@@ -1,22 +1,12 @@
 <?php
 session_start();
 
-// Anmeldeprozess
-/*if (isset($_POST['username']) && isset($_POST['password'])) {
-    // Hier wird angenommen, dass du den Benutzernamen und das Passwort überprüfst
-    // Beispiel:
-    if ($_POST['username'] == 'username' && $_POST['password'] == 'password') {
-        $_SESSION['username'] = $_POST['username'];  // Speichern des Benutzernamens in der Session
-        // Nach erfolgreichem Login Weiterleitung zu index.php
-        header('Location: index.php');
-        exit();
-    } else {
-        echo "Ungültige Anmeldedaten.";
-    }
-}*/
 $error_msg = "";
 $success_msg = "";
 require_once '../config/dbaccess.php';//datenbank in register.php einbinden
+if(!$db_obj){
+  die("Es besteht keine verbindung zur Datenbank.");
+}
 
 // Wenn das Formular abgesendet wurde
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,14 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Überprüfen, ob die Passwörter übereinstimmen
     
     else {
-        //Validierung erfolgreich -> DB-Zugriff Prepared Statements
+        
 
-
-        // Passwort sicher Hashen
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-       //check gibt es schon eine username oder useremail schon in der db?
-        $sql_check = "SELECT id from users WHERE username = ? ";
+       //check gibt es schon den username in der db?
+        $sql_check = "SELECT password from users WHERE username = ? ";
         $stmt_check = $db_obj->prepare($sql_check);
         $stmt_check-> bind_param("s", $username);
         $stmt_check->execute();
@@ -50,17 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if($stmt_check->num_rows>0){
           $stmt_check->bind_result($hashed_password_db);
           $stmt_check->fetch();
-        } 
-         if($password_verrify($password, $hashed_password_db)){
+          if(password_verify($password, $hashed_password_db)){
             
-          $_SESSION['username'] = $username;//username speichern in session
-          
-        }else{
-          $error_msg = "ungültige Anmededaten.";
-        }
-
-           $stmt_insert->close();
-        }
+            $_SESSION['username'] = $username;//username speichern in session
+            
+          }else{
+            $error_msg = "ungültige Anmededaten.";
+          }
+  
+      
+          }
+        } 
+         
         $stmt_check->close();
 
       }
@@ -72,13 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php include '../include/nav.php';?>
 <div class="container-fluid my-5" >
   <h2 class="text-center">Login</h2>
-  <?php if(!empty($error_msg)): ?>
-    <div class="alert alert-danger"><?php echo $error_msg;?></div>
-  <?php endif;?> 
-
-  <?php if(!empty($success_msg)): ?>
-    <div class="alert alert-sucess"><?php echo $success_msg;?></div>
-  <?php endif;?>  
+ 
   <form class="container border rounded bg-grey border-shadow py-5 my-5" style= "max-width:640px;" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
