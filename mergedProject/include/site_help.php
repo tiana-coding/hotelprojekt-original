@@ -1,5 +1,3 @@
-<?php include '../include/navbar.php';?>
-
 <?php include '../include/header.php';?>
 
 <div class="container-fluid py-5 my-3 mx-auto">
@@ -36,6 +34,4 @@
    
 </div>
     
-<div class="container-fluid my-5 py-4 bg-primary">
   <?php include '../include/footer.php';?>
-</div>

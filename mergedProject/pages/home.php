@@ -1,4 +1,4 @@
-  <!-- First look at the page -->
+<!-- First look at the page -->
 <div class="container-fluid hero">
   
   <div class="hero-content text-center text-white">

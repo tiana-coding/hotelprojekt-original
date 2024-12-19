@@ -1,9 +1,5 @@
 <?php include '../include/header.php';?>
 
-  <!-- Navbar -->
-<?php include '../include/navbar.php';?>
-  <!-- \Navbar -->
-
   <!-- First look at the page -->
 <div class="container-fluid hero">
   
@@ -95,27 +91,7 @@
         
       </div>
   </div>
-    
-   
-   
-    
-    
 </div>
 <!--kontakt/location-->
 
-
- <!-- Footer-->
-
- 
-
-
-
-
-<!--kontakt/location-->
-<!--social media icon-->
-<!--social media icon-->
-<div class="container-fluid my-5 py-4 bg-primary">
-  <?php include '../include/footer.php';?>
-</div>
-
-
+<?php include '../include/footer.php';?>

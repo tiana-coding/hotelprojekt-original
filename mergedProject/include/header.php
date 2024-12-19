@@ -16,4 +16,4 @@
     </head>
 <body id="page-top">
 
-<?php include 'include/navbar.php';?>
+<?php include 'navbar.php';?>
