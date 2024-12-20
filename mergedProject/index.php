@@ -16,7 +16,7 @@
             <button type="button" class="btn btn-primary btn-lg fw-bolder px-4">
               <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_blog.php'); ?>" class="text-center text-white text-decoration-none">Mehr erfahren</a>
             </button>
-            <button type="button" class="btn btn-primary btn-lg fw-bolder px-4"><a href="include/zimmer.php" class="text-center text-white text-decoration-none">Zimmer buchen</a></button>
+            <button type="button" class="btn btn-primary btn-lg fw-bolder px-4"><a href="include/site_rooms.php" class="text-center text-white text-decoration-none">Zimmer buchen</a></button>
             
         </div>  
     </div>
@@ -78,23 +78,19 @@
 
 <!-- Hotel Fotos/protfolio - TAKE A LOOK -->
 <!--kontakt/location-->
-<div class="container-fluid">
+<div class="container text-center my-2">
    
-    <h2 class="text-center display-6 fw-bold my-5 py-5">Kontakt & Location</h2>
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-4 ">
-        <?php include'kontakt.php'?>
-      </div>
-      <div class="col-12 col-md-4 mt-5 pt-5 ps-5">
-        <div class="map-container justify-content-sm-center">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.073292073073!2d13.37731231568263!3d52.51627407981147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b0e0f6b0e1e4e1%3A0x4e1f3b3f7f4d1b1d!2sAlexanderplatz%2C%2010178%20Berlin!5e0!3m2!1sen!2sde!4v1636823660003!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          <div>
-              <h4 class="text-center py-4 ps-5">Sie finden uns hier</h4>
-          </div>  
+    <h2 class="text-center display-6 fw-bold mt-5">Location</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 mt-5 pt-5">
+          <div class="ration ratio-16x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.073292073073!2d13.37731231568263!3d52.51627407981147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b0e0f6b0e1e4e1%3A0x4e1f3b3f7f4d1b1d!2sAlexanderplatz%2C%2010178%20Berlin!5e0!3m2!1sen!2sde!4v1636823660003!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div>
+                <h4 class="text-center py-3 ps-3">Sie finden uns hier</h4>
+            </div>  
+          </div>
         </div>
-        
       </div>
-  </div>
 </div>
 <!--kontakt/location-->
 

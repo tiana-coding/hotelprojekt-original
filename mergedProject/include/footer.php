@@ -20,7 +20,7 @@
     </ul>
     
   </footer>
-  <div class="container-fluid my-5 py-4 bg-primary">
+  <div class="container-fluid mt-auto py-2 bg-primary">
         <p class="text-center text-body-secondary fw-bolder">&copy; 2024 Blick & Glück</p>
   </div>
 </div>
