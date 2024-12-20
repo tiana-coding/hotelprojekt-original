@@ -1,35 +1,79 @@
 <?php
 include('fct_session.php'); 
-
-
-// Variablen für Reservierungsinformationen initialisieren
-$reservation_message = '';
-$room_type = '';
-$check_in = '';
-$check_out = '';
-$number_of_guests = 1;
-
-// Wenn das Formular abgesendet wird, verarbeite die Reservierung
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Formulardaten erhalten und validieren
-    $room_type = $_POST['room_type'];
-    $check_in = $_POST['check_in'];
-    $check_out = $_POST['check_out'];
-    $number_of_guests = $_POST['number_of_guests'];
-
-    // Überprüfen, ob alle Felder ausgefüllt sind
-    if (empty($room_type) || empty($check_in) || empty($check_out)) {
-        $reservation_message = '<p class="text-danger">Alle Felder müssen ausgefüllt werden.</p>';
-    } else {
-        // Reservierung erfolgreich verarbeitet
-        $_SESSION['reservation'] = [
-            'room_type' => $room_type,
-            'check_in' => $check_in,
-            'check_out' => $check_out,
-            'number_of_guests' => $number_of_guests
-        ];
-        $reservation_message = '<p class="text-success">Ihre Reservierung wurde erfolgreich durchgeführt!</p>';
-    }
+require_once '../config/dbaccess.php';//datenbank in fct_rooms.php einbinden
+if(!$db_obj){
+  die("Es besteht keine verbindung zur Datenbank.");
 }
+
+//function verfügbarkeit prüfen
+function getAvaliableRooms($db_obj) {
+    $query = "SELECT id, room_number, category, price_per_night, description FROM rooms WHERE is_available = 1";
+
+    $result = $db_obj->query($query);
+    $rooms = [];
+    if($result->num_rows>0) {
+        while($row = $result->fetch_assoc()){
+            $rooms[]=$row;//ergebnis speichern
+        }
+    }
+    return $rooms; //rooms die noch verfügbar sind werde ermittelt
+}
+
+//function reserveRoom, wenn rooms noch gibt kann kunden es reservieren
+function reserveRoom($db_obj, $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes){
+
+$query ="SELECT is_available FROM rooms WHERE id = ? LIMIT 1"   ;
+//abrufen die informationen
+
+$stmt = $db_obj->prepare($query);
+if(!$stmt){
+    return "Fehler bei der Bearbeitung" . $db_obj->error;
+
+}
+$stmt -> bind_param("i", $room_id);//room_id (integer) binden
+$stmt ->execute();
+$stmt->bind_result($room_id, $is_available);
+$stmt->fetch();
+$stmt->close();
+
+if(!$is_available){
+    return "Das ausgewählte Zimmer ist ausgebucht.";
+
+}
+//sonst die reservierung durchgeführt und gespeichert in table reservations
+$insertQuery = "INSERT INTO reservations (room_id, check_in, check_out, guests, breakfast, children, pets, parking, notes)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$stmt= $db_obj->prepare($insertQuery);
+
+if(!$stmt){
+    return "Fehler bei der Bearbeitung" . $db_obj->error;
+
+}
+
+$stmt->bind_param("issssssss", $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes);
+
+//nach dem executen werden table mit neuen hinzugefügten werten aktualisiert
+if($stmt->execute()) {
+    $updateQuery= "UPDATE rooms Set is_available = 0 WHERE id = ?";
+    $updateStmt=$db_obj->prepare($updateQuery);
+
+    if(!$updateStmt){
+        return "Fehler bei der Bearbeitung" . $db_obj->error;
+    
+    }
+    $updateStmt->bind_param("i", $room_id);
+    $updateStmt->execute();
+    $updateStmt->close();
+
+    return "Reservierung gespeichert!";
+
+    }else{
+        return "Fehler: " .$stmt->error;
+
+    }
+
+
+}
+
+
 
 ?>

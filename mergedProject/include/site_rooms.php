@@ -3,39 +3,77 @@ include('fct_session.php');
 
 include('fct_rooms.php');
 include('header.php');
-?>    
-    
+  
+$reservation_message='';//initialisiere Reservation msg
+
+if ($_SERVER['REQUEST_METHOD']== 'POST'){
+    $category=$_POST['category'];
+    $check_in_date=$_POST['check_in_date'];
+    $check_out_date=$_POST['check_out_date'];
+    $guests=$_POST['number_of_guests'];
+    $breakfast=$_POST['breakfast'];
+    $children=$_POST['children'];
+    $pets=$_POST['pets'];
+    $parking=$_POST['parking'];
+    $notes=$_POST['notes'];
+
+
+$availableRooms=  getAvaliableRooms($db_obj);
+$room_id=null;
+foreach($availableRoom as $room){
+    if($room['category']==$category){
+        $room_id=$room['id'];
+        break;
+    }
+}
+if($room_id){
+    $reservation_message = reserveRoom(
+        $db_obj, 
+        $room_id,
+        $check_in_date, 
+        $check_out_date, 
+        $guests, 
+        $breakfast, 
+        $children, 
+        $pets, 
+        $parking, 
+        $notes
+    );
+} else{
+    $reservation_message ="Das ausgewählte Zimmer ist ausgebucht.";
+    }
+    echo $reservation_message;
+}
+
+?>      
     <div class="container mt-4">
         <h1 class="text-center mt-4 pt-4">Zimmerreservierung</h1>
-
-        <!-- Reservierungsnachricht (Erfolg oder Fehler) -->
-        <?php echo $reservation_message; ?>
 
         <!-- Formular für die Zimmerreservierung -->
         <form class="mx-auto mt-3 pt-3" style="width:50%;" method="POST" action="site_rooms.php">
             <div class="form-group">
-                <label for="room_type" class="form-label">Zimmerkategorie</label>
-                <select class="form-select" id="room_type" name="room_type" required>
+                <label for="category" class="form-label">Zimmerkategorie</label>
+                <select class="form-select" id="category" name="category" required>
                     <option value="">Wählen Sie ein Zimmer</option>
-                    <option value="Einzelzimmer" <?php echo ($room_type == 'Einzelzimmer') ? 'selected' : ''; ?>>Einzelzimmer</option>
-                    <option value="Doppelzimmer" <?php echo ($room_type == 'Doppelzimmer') ? 'selected' : ''; ?>>Doppelzimmer</option>
-                    <option value="Suite" <?php echo ($room_type == 'Suite') ? 'selected' : ''; ?>>Suite</option>
+                    <option value="Einzelzimmer" <?php echo ($category == 'Einzelzimmer') ? 'selected' : ''; ?>>Einzelzimmer</option>
+                    <option value="Doppelzimmer" <?php echo ($category == 'Doppelzimmer') ? 'selected' : ''; ?>>Doppelzimmer</option>
+                    <option value="Suite" <?php echo ($category == 'Suite') ? 'selected' : ''; ?>>Suite</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="check_in" class="form-label">Anreisedatum</label>
-                <input type="date" class="form-control" id="check_in" name="check_in" value="<?php echo $check_in; ?>" required>
+                <label for="check_in_date" class="form-label">Anreisedatum</label>
+                <input type="date" class="form-control" id="check_in_date" name="check_in_date" value="<?php echo $check_in_date; ?>" required>
             </div>
 
             <div class="form-group">
-                <label for="check_out" class="form-label">Abreisedatum</label>
-                <input type="date" class="form-control" id="check_out" name="check_out" value="<?php echo $check_out; ?>" required>
+                <label for="check_out_date" class="form-label">Abreisedatum</label>
+                <input type="date" class="form-control" id="check_out_date" name="check_out_date" value="<?php echo $check_out_date; ?>" required>
             </div>
 
             <div class="form-group">
-                <label for="number_of_guests" class="form-label">Anzahl der Gäste</label>
-                <input type="number" class="form-control" id="number_of_guests" name="number_of_guests" value="<?php echo $number_of_guests; ?>" min="1" required>
+                <label for="guests" class="form-label">Anzahl der Gäste</label>
+                <input type="number" class="form-control" id="guests" name="guests" value="<?php echo $nguests; ?>" min="1" required>
             </div>
             <div class="form-group">
             <label for="breakfast">Frühstück:</label>
