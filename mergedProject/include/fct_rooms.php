@@ -1,6 +1,6 @@
 <?php
 include('fct_session.php'); 
-include '../include/header.php';
+
 
 // Variablen für Reservierungsinformationen initialisieren
 $reservation_message = '';
@@ -32,5 +32,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-include '../include/footer.php';
 ?>
