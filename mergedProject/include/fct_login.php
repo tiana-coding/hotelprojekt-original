@@ -8,6 +8,14 @@ require_once '../config/dbaccess.php';//datenbank in register.php einbinden
 if(!$db_obj){
   die("Es besteht keine verbindung zur Datenbank.");
 }
+//prüfen, ob die anmeldung erfolgreich oder fehlgeschlagen war
+if(isset($_GET['error'])&&($_GET['error']=='user_exists')){
+  $error_msg="Benuzer existiert, loggen Sie sich bitte ein.";
+}
+if(isset($_GET['success'])&&($_GET['success']=='registered')){
+  $error_msg="Registrierung erfolgreich! Sie können jetzt einloggen.";
+}
+
 
 // Wenn das Formular abgesendet wurde
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -57,6 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="container-fluid my-5" >
   <h2 class="text-center">Login</h2>  
+  <!-- anzeigen fehlermeldungen oder erfolg -->
+   <?php if(!empty($error_msg)): ?>
+    <div class="alert alert-danger"><?php echo $error_msg; ?></div>
+   <?php endif; ?>
+   <?php if(!empty($success_msg)): ?>
+    <div class="alert alert-success"><?php echo $success_msg; ?></div>
+   <?php endif; ?>
+
+
   <form class="container border rounded bg-grey border-shadow py-5 my-5" style= "max-width:640px;" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>

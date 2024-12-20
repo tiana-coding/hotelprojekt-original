@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Passwort sicher Hashen
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-       //check gibt es schon eine username oder useremail schon in der db?
+       //check gibt es schon einen username oder useremail schon in der db?
         $sql_check = "SELECT id from users WHERE username = ? OR useremail = ? ";
         $stmt_check = $db_obj->prepare($sql_check);
         $stmt_check-> bind_param("ss", $username, $email);
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if($stmt_check->num_rows>0){
           $error_msg="Benuzer existiert, loggen Sie sich bitte ein.";
         } 
-        else{//insert user into table
+        else{//user noch nicht vorhanden, dann insert user into table
               $sql_insert = "INSERT INTO users(`username`, `password`, `useremail`) VALUES (?,?,?)";
               $stmt_insert = $db_obj->prepare($sql_insert);
               $stmt_insert->bind_param("sss", $username, $hashed_password, $email);
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //wenn kundendaten hinzugefügt wurde
            if($stmt_insert->execute()) {
               $success_msg = "Ihre Registrierung war erfolgreich. Sie können sich einloggen";
-              header("Location: welcome.php");
+              header("Location: ../include/fct_login.php?success=registered");
               exit();
             
     
