@@ -20,7 +20,7 @@ function getAvailableRooms($db_obj) {
 }
 
 //function reserveRoom, wenn rooms noch gibt kann kunden es reservieren
-function reserveRoom($db_obj, $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes){
+function reserveRoom($db_obj, $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes, $created_at){
 
 $query ="SELECT is_available FROM rooms WHERE id = ? LIMIT 1"   ;
 //abrufen die informationen
@@ -41,15 +41,15 @@ if(!$is_available){
 
 }
 //sonst die reservierung durchgeführt und gespeichert in table reservations
-$insertQuery = "INSERT INTO reservations (room_id, check_in_date, check_out_date, guests, breakfast, children, pets, parking, notes)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$insertQuery = "INSERT INTO reservations (room_id, check_in_date, check_out_date, guests, breakfast, children, pets, parking, notes, created_at)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt= $db_obj->prepare($insertQuery);
 
 if(!$stmt){
     return "Fehler bei der Bearbeitung" . $db_obj->error;
 
 }
-
-$stmt->bind_param("issssssss", $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes);
+$created_at = date('Y-m-d H:i:s');
+$stmt->bind_param("ississssss", $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes, $created_at);
 
 //nach dem executen werden table mit neuen hinzugefügten werten aktualisiert
 if($stmt->execute()) {
