@@ -1,6 +1,5 @@
 <?php
 include('fct_session.php'); 
-
 include('fct_rooms.php');
 include('header.php');
   
@@ -10,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
     $category=$_POST['category'];
     $check_in_date=$_POST['check_in_date'];
     $check_out_date=$_POST['check_out_date'];
-    $guests=$_POST['number_of_guests'];
+    $guests=$_POST['guests'];
     $breakfast=$_POST['breakfast'];
     $children=$_POST['children'];
     $pets=$_POST['pets'];
@@ -18,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD']== 'POST'){
     $notes=$_POST['notes'];
 
 
-$availableRooms=  getAvaliableRooms($db_obj);
+$availableRooms=  getAvailableRooms($db_obj);
 $room_id=null;
-foreach($availableRoom as $room){
+foreach($availableRooms as $room){
     if($room['category']==$category){
         $room_id=$room['id'];
         break;
@@ -42,7 +41,8 @@ if($room_id){
 } else{
     $reservation_message ="Das ausgewählte Zimmer ist ausgebucht.";
     }
-    echo $reservation_message;
+    header("Location: site_reservation.php?room_id=" . urlencode($room_id) . "&success=1");
+    exit();
 }
 
 ?>      
@@ -50,7 +50,7 @@ if($room_id){
         <h1 class="text-center mt-4 pt-4">Zimmerreservierung</h1>
 
         <!-- Formular für die Zimmerreservierung -->
-        <form class="mx-auto mt-3 pt-3" style="width:50%;" method="POST" action="site_rooms.php">
+        <form class="mx-auto mt-3 pt-3" style="width:50%;" method="POST" action="site_reservation.php">
             <div class="form-group">
                 <label for="category" class="form-label">Zimmerkategorie</label>
                 <select class="form-select" id="category" name="category" required>
@@ -73,7 +73,7 @@ if($room_id){
 
             <div class="form-group">
                 <label for="guests" class="form-label">Anzahl der Gäste</label>
-                <input type="number" class="form-control" id="guests" name="guests" value="<?php echo $nguests; ?>" min="1" required>
+                <input type="number" class="form-control" id="guests" name="guests" value="<?php echo $guests; ?>" min="1" required>
             </div>
             <div class="form-group">
             <label for="breakfast">Frühstück:</label>
@@ -123,6 +123,7 @@ if($room_id){
         <!-- Absenden -->
             <button type="submit" class="btn btn-primary mt-3 pt-2">Reservierung abschicken</button>
         </form>
+    
     </div>
     <?php include('footer.php');?>
 

@@ -6,7 +6,7 @@ if(!$db_obj){
 }
 
 //function verfügbarkeit prüfen
-function getAvaliableRooms($db_obj) {
+function getAvailableRooms($db_obj) {
     $query = "SELECT id, room_number, category, price_per_night, description FROM rooms WHERE is_available = 1";
 
     $result = $db_obj->query($query);
@@ -32,7 +32,7 @@ if(!$stmt){
 }
 $stmt -> bind_param("i", $room_id);//room_id (integer) binden
 $stmt ->execute();
-$stmt->bind_result($room_id, $is_available);
+$stmt->bind_result($is_available);
 $stmt->fetch();
 $stmt->close();
 
@@ -41,7 +41,7 @@ if(!$is_available){
 
 }
 //sonst die reservierung durchgeführt und gespeichert in table reservations
-$insertQuery = "INSERT INTO reservations (room_id, check_in, check_out, guests, breakfast, children, pets, parking, notes)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$insertQuery = "INSERT INTO reservations (room_id, check_in_date, check_out_date, guests, breakfast, children, pets, parking, notes)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt= $db_obj->prepare($insertQuery);
 
 if(!$stmt){
