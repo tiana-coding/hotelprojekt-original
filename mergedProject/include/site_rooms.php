@@ -1,6 +1,7 @@
 <?php
 include('fct_session.php'); 
 include('fct_rooms.php');
+include('fct_reservation.php');
 include('header.php');
   
 $reservation_message='';//initialisiere Reservation msg
@@ -50,6 +51,9 @@ if($room_id){
 ?>      
     <div class="container mt-4">
         <h1 class="text-center mt-4 pt-4">Zimmerreservierung</h1>
+        <?php if (!isset($_SESSION['role'])): ?>
+                <p class="text-danger my-3">Bitte loggen Sie sich ein oder registrieren Sie sich. Nur registriete Kunden können Zimmerreservierung durchführen.</p>
+        <?php endif; ?>
 
         <!-- Formular für die Zimmerreservierung -->
         <form class="mx-auto mt-3 pt-3" style="width:50%;" method="POST" action="site_reservation.php">
@@ -126,7 +130,8 @@ if($room_id){
         </div>
 
         <!-- Absenden -->
-            <button type="submit" class="btn btn-primary mt-3 pt-2">Reservierung abschicken</button>
+            <button type="submit" class="btn btn-primary mt-3 pt-2"<?php echo (!isset($_SESSION['role']) ? 'disabled' : '');?>>Reservierung abschicken</button>
+            
         </form>
     
     </div>

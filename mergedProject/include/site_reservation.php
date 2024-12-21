@@ -9,6 +9,7 @@ if(!$db_obj){
 include('header.php');
 
 if(isset($_GET['room_id'], $_GET['success'])&&$_GET['success']==1){
+
   $room_id=intval($_GET['room_id']);
   $reservation = getReservationByRoomId($db_obj,$room_id);
   if(!$reservation){
@@ -38,7 +39,7 @@ if(isset($_GET['room_id'], $_GET['success'])&&$_GET['success']==1){
       </tr>
       <tr>
         <th scope="row">3</th>
-        <td>Prei pro Nacht</td>
+        <td>Preis pro Nacht</td>
         <td><?php echo htmlspecialchars($reservation['price_per_night']);?></td>
       </tr>
       <tr>
@@ -70,7 +71,7 @@ if(isset($_GET['room_id'], $_GET['success'])&&$_GET['success']==1){
       </tr>
       <tr>
         <th scope="row">9</th>
-        <td>Hausertier</td>
+        <td>Haustier</td>
         <td><?php echo htmlspecialchars($reservation['pets']);?></td>
       </tr>
       <tr>

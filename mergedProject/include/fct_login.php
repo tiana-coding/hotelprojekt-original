@@ -13,7 +13,7 @@ if(isset($_GET['error'])&&($_GET['error']=='user_exists')){
   $error_msg="Benuzer existiert, loggen Sie sich bitte ein.";
 }
 if(isset($_GET['success'])&&($_GET['success']=='registered')){
-  $error_msg="Registrierung erfolgreich! Sie können jetzt einloggen.";
+  $success_msg="Registrierung erfolgreich! Sie können jetzt einloggen.";
 }
 
 
@@ -21,31 +21,37 @@ if(isset($_GET['success'])&&($_GET['success']=='registered')){
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Benutzereingaben validieren
     $username = htmlspecialchars(trim($_POST['username']));
-    
     $password = $_POST['password'];
+
+
     // Einfaches Beispiel: Überprüfen, ob alle Felder ausgefüllt sind
     if (empty($username) || empty($password)) {
         echo "<p class='text-danger'>Alle Felder müssen ausgefüllt werden.</p>";
     }
-    // Überprüfen, ob die Passwörter übereinstimmen
-    
-    else {
+  
+      else {
         //DB-Zugriff Prepared Statements
 
        //check gibt es schon username in der db?
-        $sql_check = "SELECT password from users WHERE username = ?";
+        $sql_check = "SELECT id, password, role from users WHERE username = ?";
         $stmt_check = $db_obj->prepare($sql_check);
         $stmt_check-> bind_param("s", $username);
         $stmt_check->execute();
         $stmt_check->store_result();
 
-        //wenn username schon vorliegt
+        //wenn username schon existiert
         if($stmt_check->num_rows>0){
-          $stmt_check->bind_result($hashed_password_db);
+          $stmt_check->bind_result($user_id, $hashed_password_db, $role);
           $stmt_check->fetch();
+
+          //passwort prüfen
           if(password_verify($password, $hashed_password_db)){  
+
             $_SESSION['username'] = $username;//username speichern in session
-            $success_msg="Login erfolgreich!";
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['role'] = $role;
+            header("Location:../index.php?success=login");
+            exit();
           }else{
             $error_msg = "Ungültige Anmeldedaten. Versuchen Sie es noch mal!";
           }

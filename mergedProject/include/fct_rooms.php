@@ -4,6 +4,8 @@ require_once '../config/dbaccess.php';//datenbank in fct_rooms.php einbinden
 if(!$db_obj){
   die("Es besteht keine verbindung zur Datenbank.");
 }
+//check ob der "kunden" schon unsere customer ist(bereits in db angelegt, wenn nicht hat er keine rechte reservierungen durchzuführen)
+
 
 //function verfügbarkeit prüfen
 function getAvailableRooms($db_obj) {

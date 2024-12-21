@@ -45,14 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if($stmt_check->num_rows>0){
           $error_msg="Benuzer existiert, loggen Sie sich bitte ein.";
         } 
-        else{//user noch nicht vorhanden, dann insert user into table
-              $sql_insert = "INSERT INTO users(`username`, `password`, `useremail`) VALUES (?,?,?)";
+        else{//user noch nicht vorhanden, dann insert user into table, customer ist standard user
+              $sql_insert = "INSERT INTO users(username, password, useremail, role) VALUES (?,?,?,'customer')";
               $stmt_insert = $db_obj->prepare($sql_insert);
               $stmt_insert->bind_param("sss", $username, $hashed_password, $email);
 
             //wenn kundendaten hinzugefügt wurde
            if($stmt_insert->execute()) {
               $success_msg = "Ihre Registrierung war erfolgreich. Sie können sich einloggen";
+              $_SESSION['user_id']=$db_obj->insert_id;
+              $_SESSION['username']=$username;
               header("Location: ../include/fct_login.php?success=registered");
               exit();
             
@@ -85,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <?php endif;?> 
 
   <?php if(!empty($success_msg)): ?>
-    <div class="alert alert-sucess"><?php echo $success_msg;?></div>
+    <div class="alert alert-success"><?php echo $success_msg;?></div>
   <?php endif;?>  
 
 
