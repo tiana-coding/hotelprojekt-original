@@ -38,13 +38,15 @@ if($room_id){
         $parking, 
         $notes
     );
-} else{
-    $reservation_message ="Das ausgewählte Zimmer ist ausgebucht.";
-    }
+ 
     header("Location: site_reservation.php?room_id=" . urlencode($room_id) . "&success=1");
     exit();
-}
+    }   else{
+        $reservation_message ="Das ausgewählte Zimmer ist ausgebucht.";
+        echo"<div class= 'alert alert-danger text-center'>$reservation_message</div>";
+    }
 
+}
 ?>      
     <div class="container mt-4">
         <h1 class="text-center mt-4 pt-4">Zimmerreservierung</h1>
@@ -55,8 +57,11 @@ if($room_id){
                 <label for="category" class="form-label">Zimmerkategorie</label>
                 <select class="form-select" id="category" name="category" required>
                     <option value="">Wählen Sie ein Zimmer</option>
+
                     <option value="Einzelzimmer" <?php echo ($category == 'Einzelzimmer') ? 'selected' : ''; ?>>Einzelzimmer</option>
+
                     <option value="Doppelzimmer" <?php echo ($category == 'Doppelzimmer') ? 'selected' : ''; ?>>Doppelzimmer</option>
+                    
                     <option value="Suite" <?php echo ($category == 'Suite') ? 'selected' : ''; ?>>Suite</option>
                 </select>
             </div>

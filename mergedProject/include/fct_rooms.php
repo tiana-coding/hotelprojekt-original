@@ -20,7 +20,7 @@ function getAvailableRooms($db_obj) {
 }
 
 //function reserveRoom, wenn rooms noch gibt kann kunden es reservieren
-function reserveRoom($db_obj, $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes, $created_at){
+function reserveRoom($db_obj, $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes){
 
 $query ="SELECT is_available FROM rooms WHERE id = ? LIMIT 1"   ;
 //abrufen die informationen
@@ -53,6 +53,9 @@ $stmt->bind_param("ississssss", $room_id, $check_in_date, $check_out_date, $gues
 
 //nach dem executen werden table mit neuen hinzugefügten werten aktualisiert
 if($stmt->execute()) {
+
+    $reservation_id=$stmt->insert_id;
+    //wenn das zimmer gebucht wurde, setzt is_available auf 0/false
     $updateQuery= "UPDATE rooms Set is_available = 0 WHERE id = ?";
     $updateStmt=$db_obj->prepare($updateQuery);
 
@@ -64,7 +67,7 @@ if($stmt->execute()) {
     $updateStmt->execute();
     $updateStmt->close();
 
-    return "Reservierung gespeichert!";
+    return "$reservation_id";
 
     }else{
         return "Fehler: " .$stmt->error;

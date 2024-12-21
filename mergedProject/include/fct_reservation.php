@@ -4,25 +4,22 @@ require_once '../config/dbaccess.php';
 if(!$db_obj){
   die("Es besteht keine verbindung zur Datenbank.");
 }
-include('header.php');
-if(isset($_GET['room_id'],$_GET['success'])&& $_GET['success']==1){
-    $room_id=intval(($_GET['room_id']));
-
-
-//hole die infos über die reservierung aus der db
-    $query="SELECT * FROM rooms WHERE id = ?";
+function getReservationByRoomId($db_obj, $room_id){
+    $query = "SELECT r.*, rm.room_number, rm.category, rm.price_per_night
+    FROM reservations AS r
+    JOIN rooms AS rm ON r.room_id=rm.id
+    WHERE rm.id= ? LIMIT 1";
     $stmt=$db_obj->prepare($query);
+    if(!$stmt){
+        die("Fehrler bei der Abfrage: " .$db_obj->error
+    ); }
     $stmt->bind_param("i", $room_id);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    if($result->num_rows==0){
-        die("Zimmer nicht gefunden.");
+    $result=$stmt->get_result();
+    if($result->num_rows == 0){
+        echo "Keine Reservierung gefunden";
+        return null; //keine reservierung gefunden
     }
-    $room = $result->fetch_assoc();
-
-}else{
-    echo "Angabe nicht gültig.";
+    return $result->fetch_assoc();
 }
-
-include('footer.php');?>
+?>
