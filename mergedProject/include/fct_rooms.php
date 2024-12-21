@@ -9,7 +9,7 @@ if(!$db_obj){
 
 //function verfügbarkeit prüfen
 function getAvailableRooms($db_obj) {
-    $query = "SELECT id, room_number, category, price_per_night, description FROM rooms WHERE is_available = 1";
+    $query = "SELECT id, room_id, category, price_per_night, description FROM rooms WHERE is_available = 1";
 
     $result = $db_obj->query($query);
     $rooms = [];

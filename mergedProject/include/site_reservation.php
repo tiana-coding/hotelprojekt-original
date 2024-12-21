@@ -8,14 +8,15 @@ if(!$db_obj){
 }
 include('header.php');
 
-if(isset($_GET['room_id'], $_GET['success'])&&$_GET['success']==1){
+if(isset($_GET['room_id'], $_GET['success'])&& $_GET['success']==1){
 
   $room_id=intval($_GET['room_id']);
-  $reservation = getReservationByRoomId($db_obj,$room_id);
+  $reservation = getReservationByRoomId($db_obj,$reservation_id);
   if(!$reservation){
     die("Zimmer nicht gefunden!");
   }
 }?>
+<!-- reservation tabel ausgeben -->
 <div class="container mt-5">
   <h1 class="text-center my-3">Ihre Reservierung ist bei uns eingegangen.</h1>
   <table class="table table-bordered mt-3 p-3">
