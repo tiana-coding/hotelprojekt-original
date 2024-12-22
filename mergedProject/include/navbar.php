@@ -1,9 +1,5 @@
 <?php include('fct_session.php'); ?>
 
-<?php
-session_start();
-?>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/index.php'); ?>">
@@ -32,25 +28,33 @@ session_start();
             <h4>Hilfe</h4></a>
         </li>
         
-        <?php 
-        session_start();
-        if (isset($_SESSION['username'])): ?>
-          <li class="nav-item"><a class="nav-link" href="site_upload.php">Bildupload</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_logout.php'); ?>">
-              Logout</a>
-          </li>
-          <li class="nav-item"><span class="navbar-text">Willkommen, <?= htmlspecialchars($_SESSION['username']); ?>!</span></li>
-        <?php else: ?>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_login.php'); ?>">
-              <h4>Login</h4></a>
-          </li>
+       
+        
+          
           <li class="nav-item">
             <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_register.php'); ?>">
               <h4>Registrierung</h4></a>
           </li>
-        <?php endif; ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_login.php'); ?>">
+              <h4>Login</h4></a>
+          </li>
+          <?php 
+      // user oder admin können sich ausloggen
+          if (isset($_SESSION['username'])): ?>
+        
+            <li class="nav-item"><span class="navbar-text">Willkommen, <?= htmlspecialchars($_SESSION['username']); ?>!</span></li>
+            <!-- admin können Bildupload -->
+            <?php if($_SESSION['role']=='admin'): ?> 
+            <li class="nav-item"><a class="nav-link" href="site_upload.php">Bildupload</a></li>
+            <?php endif; ?>
+            <li class="nav-item">
+            <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_logout.php'); ?>">
+              Logout</a>
+            </li>
+          
+       <?php endif; ?>   
+      
       </ul>
     </div>
   </div>
