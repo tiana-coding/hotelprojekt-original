@@ -1,10 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+;
 include '../include/fct_session.php';
-include '../include/header.php';  ?>
+include '../include/header.php'; 
 
-<?php 
-// Session starten
-session_start();
 
 // Logout-Mechanismus
 //überprüfen, ob logout paramenter in der url vorhanden ist

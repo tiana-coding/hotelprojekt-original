@@ -1,21 +1,7 @@
-<?php
-include('fct_session.php'); 
-require_once '../config/dbaccess.php';
-require_once 'fct_reservation.php';
+<?php include 'fct_reservation.php';
 
-if(!$db_obj){
-  die("Es besteht keine verbindung zur Datenbank.");
-}
-include('header.php');
 
-if(isset($_GET['room_id'], $_GET['success'])&& $_GET['success']==1){
-
-  $room_id=intval($_GET['room_id']);
-  $reservation = getReservationByRoomId($db_obj,$reservation_id);
-  if(!$reservation){
-    die("Zimmer nicht gefunden!");
-  }
-}?>
+?>
 <!-- reservation tabel ausgeben -->
 <div class="container mt-5">
   <h1 class="text-center my-3">Ihre Reservierung ist bei uns eingegangen.</h1>
