@@ -62,7 +62,7 @@ if(!isset($_SESSION['username'])){
                 <option value="">Bitte wählen...</option>
                 <option value="mit">Mit Frühstück</option>
                 <option value="ohne">Ohne Frühstück</option>
-                <option value="">Später entscheiden</option>
+                
             </select>
         </div>
         <div class="form-group">

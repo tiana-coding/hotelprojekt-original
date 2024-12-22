@@ -1,5 +1,5 @@
 <?php include 'fct_reservation.php';
-
+  
 
 ?>
 <!-- reservation tabel ausgeben -->
@@ -17,7 +17,7 @@
       <tr>
         <th scope="row">1</th>
         <td>Zimmernummer</td>
-        <td><?php echo htmlspecialchars($reservation['room_number']);?></td>
+        <td><?php echo htmlspecialchars($reservation['room_id']);?></td>
       </tr>
       <tr>
         <th scope="row">2</th>

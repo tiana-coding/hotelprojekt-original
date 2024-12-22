@@ -1,9 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-include('fct_session.php'); 
+
+include('header.php');
 require_once '../config/dbaccess.php';
 
 
@@ -11,13 +9,32 @@ require_once '../config/dbaccess.php';
 if(!$db_obj){
   die("Es besteht keine verbindung zur Datenbank.");
 }
-include('header.php');
+//prüfen, ob das formular abgesendet wurde?
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
+  $category = $_POST['category'] ?? '';
+  $check_in_date = $_POST['check_in_date'] ?? '';
+  $check_out_date = $_POST['check_out_date'] ?? '';
+  $guests = $_POST['guests'] ?? '';
+  $breakfast = $_POST['breakfast'] ?? '';
+  $children = $_POST['children'] ?? '';
+  $pets = $_POST['pets'] ?? '';
+  $parking = $_POST['parking'] ?? '';
+  $notes = $_POST['notes'] ?? '';
+  $user_id = $_POST['user_id'] ?? null;
+}
+if(empty($category) ||empty($check_in_date) ||empty($check_out_date) || empty($check_in_date)){
+  echo'<p class="text-danger">Pflichtfelder, bitte ausfüllen.</p>';
+} 
+
+
+//funktion reservation_id durch room_id in verbindung setzen
 function getReservationByRoomId($db_obj, $reservation_id){
 
 
   $query = "SELECT r.*, rm.room_id, rm.category, rm.price_per_night
   FROM reservations AS r
-  JOIN rooms AS rm ON r.room_id=rm.id
+  JOIN rooms AS rm ON r.room_id=rm.room_id
   WHERE r.id = ? LIMIT 1";
   $stmt=$db_obj->prepare($query);
   
@@ -34,9 +51,24 @@ function getReservationByRoomId($db_obj, $reservation_id){
   }
   return $result->fetch_assoc();
 }
+//funktion 
 //$db_obj, $room_id, $user_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes
-function insertResevation($db_obj,$room_id, $user_id, $check_in_date,$check_out_date,$guests,$breakfast,$children,$pets,$parking,$notes,$created_at){
-    $query= "INSERT INTO reservations(room_id, user_id, check_in_date,check_out_date,guests,breakfast,children,pets,parking,notes,created_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+//hinzufügen die daten in die reservations tabelle
+function insertResevation($db_obj,$room_id, $user_id, $check_in_date,$check_out_date,$guests,$breakfast,$children,$pets,$parking,$notes){
+
+//test ob daten hinzugefügt werden können
+ /*function insertResevation($db_obj,$room_id = 1,// Beispielwert
+ $user_id = 1, // Beispielwert
+ $check_in_date = '2024-12-25',
+ $check_out_date = '2024-12-30',
+ $guests = 2,
+ $breakfast = 'mit',
+ $children = 'kein',
+ $pets = 'keine',
+ $parking = 'ja',
+ $notes = 'Testanmerkung'){*/
+  
+    $query= "INSERT INTO reservations(room_id, user_id, check_in_date,check_out_date,guests,breakfast,children,pets,parking,notes,created_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt=$db_obj->prepare($query);
 
@@ -50,6 +82,7 @@ function insertResevation($db_obj,$room_id, $user_id, $check_in_date,$check_out_
         return $stmt->insert_id;//(ID der Reservierung wird zurückgegeben);
     }else{
         echo("Fehler" . $stmt->error);
+        return false;
     }
 
 
