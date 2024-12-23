@@ -1,12 +1,12 @@
 <?php
 
+
+include('header.php');
+include('../config/dbaccess.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include('fct_session.php'); 
-include('../config/dbaccess.php');
-include('header.php');
 
 
 if(!isset($_SESSION['username'])){
@@ -17,41 +17,35 @@ if(!isset($_SESSION['username'])){
 
     exit();
 
-    }
-    $username=$_SESSION['username'];
-?>
+    }?>
+
+
 <!-- Formular für die Zimmerreservierung -->   
     <div class="container mt-4">
         <h1 class="text-center mt-4 pt-4">Zimmerreservierung</h1>
-        <?php if (!isset($_SESSION['role'])): ?>
+        <?php if (!isset($_SESSION['username'])): ?>
                 <p class="text-danger my-3">Bitte loggen Sie sich ein oder registrieren Sie sich. Nur registriete Kunden können Zimmerreservierung durchführen</p>
         <?php endif; ?>
 
         
         <form class="mx-auto mt-3 pt-3" style="width:50%;" method="POST" action="site_reservation.php">
-            <div class="form-group">
-                <label for="category" class="form-label">Zimmerkategorie</label>
-                <select class="form-select" id="category" name="category" required>
-                    <option value="">Wählen Sie ein Zimmer</option>
-
-                    <option value="Einzelzimmer" <?php echo (isset($category)&&$category == 'Einzelzimmer') ? 'selected' : ''; ?>>Einzelzimmer</option>
-
-                    <option value="Doppelzimmer" <?php echo (isset($category)&&$category == 'Doppelzimmer') ? 'selected' : ''; ?>>Doppelzimmer</option>
+            <!-- Hidden-Feld für room_id -->
+            <input type="hidden" name="room_id" value="<?php echo htmlspecialchars($room_id); ?>">
+            
+            <div class="form-row d-flex justify-content-between">
+                <div class="form-group col-md-6 px-2">
+                    <label for="check_in_date" class="form-label">Anreisedatum</label>
+                    <input type="date" class="form-control" id="check_in_date" name="check_in_date" value="<?php echo htmlspecialchars($check_in_date); ?>" required>
                     
-                    <option value="Suite" <?php echo (isset($category)&&$category == 'Suite') ? 'selected' : ''; ?>>Suite</option>
-                </select>
-            </div>
+                </div>
 
-            <div class="form-group">
-                <label for="check_in_date" class="form-label">Anreisedatum</label>
-                <input type="date" class="form-control" id="check_in_date" name="check_in_date" value="<?php echo $check_in_date; ?>" required>
-            </div>
-
-            <div class="form-group">
-                <label for="check_out_date" class="form-label">Abreisedatum</label>
-                <input type="date" class="form-control" id="check_out_date" name="check_out_date" value="<?php echo $check_out_date; ?>" required>
-            </div>
-
+                <div class="form-group col-md-6 px-2">
+                    <label for="check_out_date" class="form-label">Abreisedatum</label>
+                    <input type="date" class="form-control" id="check_out_date" name="check_out_date" value="<?php echo htmlspecialchars($check_out_date) ; ?>" required>
+                    
+                </div>
+            </div>    
+    
             <div class="form-group">
                 <label for="guests" class="form-label">Anzahl der Gäste</label>
                 <input type="number" class="form-control" id="guests" name="guests" value="<?php echo $guests; ?>" min="1" required>

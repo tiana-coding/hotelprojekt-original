@@ -1,111 +1,104 @@
 <?php
 
 
-include('header.php');
+
+
 require_once '../config/dbaccess.php';
 
 
 
 if(!$db_obj){
-  die("Es besteht keine verbindung zur Datenbank.");
+  die("Es besteht keine verbindung zur Datenbank.".mysqli_connect_error());
 }
-//prüfen, ob das formular abgesendet wurde?
-if($_SERVER['REQUEST_METHOD']=='POST'){
 
-  $category = $_POST['category'] ?? '';
-  $check_in_date = $_POST['check_in_date'] ?? '';
-  $check_out_date = $_POST['check_out_date'] ?? '';
-  $guests = $_POST['guests'] ?? '';
-  $breakfast = $_POST['breakfast'] ?? '';
-  $children = $_POST['children'] ?? '';
-  $pets = $_POST['pets'] ?? '';
-  $parking = $_POST['parking'] ?? '';
-  $notes = $_POST['notes'] ?? '';
-  $user_id = $_POST['user_id'] ?? null;
-}
-if(empty($category) ||empty($check_in_date) ||empty($check_out_date) || empty($check_in_date)){
-  echo'<p class="text-danger">Pflichtfelder, bitte ausfüllen.</p>';
-} 
+var_dump($room_id, $username, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes);
 
+//funktion verfügbarkeit
+function checkRoomAvailability($db_obj,$room_id, $check_in_date, $check_out_date){
+  //  count zählt, wie viele Reservierungen mit der angegebenen room_id existieren, die mit dem gewünschten Zeitraum kollidieren
+  $query = "SELECT COUNT(*) AS total
+  FROM reservations
+  WHERE room_id = ?
+  AND (check_in_date <? AND check_out_date>?)";
 
-//funktion reservation_id durch room_id in verbindung setzen
-function getReservationByRoomId($db_obj, $reservation_id){
+  $stmt = $db_obj->prepare($query);
 
-
-  $query = "SELECT r.*, rm.room_id, rm.category, rm.price_per_night
-  FROM reservations AS r
-  JOIN rooms AS rm ON r.room_id=rm.room_id
-  WHERE r.id = ? LIMIT 1";
-  $stmt=$db_obj->prepare($query);
-  
   if(!$stmt){
-      die("Fehrler bei der Abfrage: " .$db_obj->error
-  ); }
-  $stmt->bind_param("i", $reservation_id);
-  $stmt->execute();
-  $result=$stmt->get_result();
-  
-  if($result->num_rows == 0){
-      echo "Keine Reservierung gefunden";
-      return null; //keine reservierung gefunden
+    die("Fehler: " .$db_obj->error);
   }
-  return $result->fetch_assoc();
-}
-//funktion 
-//$db_obj, $room_id, $user_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes
-//hinzufügen die daten in die reservations tabelle
-function insertResevation($db_obj,$room_id, $user_id, $check_in_date,$check_out_date,$guests,$breakfast,$children,$pets,$parking,$notes){
 
-//test ob daten hinzugefügt werden können
- /*function insertResevation($db_obj,$room_id = 1,// Beispielwert
- $user_id = 1, // Beispielwert
- $check_in_date = '2024-12-25',
- $check_out_date = '2024-12-30',
- $guests = 2,
- $breakfast = 'mit',
- $children = 'kein',
- $pets = 'keine',
- $parking = 'ja',
- $notes = 'Testanmerkung'){*/
-  
-    $query= "INSERT INTO reservations(room_id, user_id, check_in_date,check_out_date,guests,breakfast,children,pets,parking,notes,created_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  $stmt->bind_param("iss", $room_id, $check_in_date, $check_out_date);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $data = $result->fetch_assoc();
+
+  return $data['total']==0;//wenn die ausgabe 0 liefert, ist das zimmer frei zum buchen
+}
+
+//hinzufügen die daten in die reservations tabelle
+function insertResevation($db_obj, $username, $check_in_date,$check_out_date,$guests,$breakfast,$children,$pets,$parking,$notes, $created_at,$status){
+
+    $query= "INSERT INTO reservations(username, check_in_date,check_out_date,guests,breakfast,children,pets,parking,notes,created_at, status) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), 'neu')";
 
     $stmt=$db_obj->prepare($query);
 
     if(!$stmt){
-        echo("Fehler" . $db_obj->error);
-        exit();
+        die("Fehler" . $db_obj->error);
+    
     }
-    $stmt->bind_param("iississsss", $room_id, $user_id, $check_in_date,$check_out_date,$guests,$breakfast,$children,$pets,$parking,$notes);
+    $stmt->bind_param("isssisssss", $username, $check_in_date,$check_out_date,$guests,$breakfast,$children,$pets,$parking,$notes);
 
     if($stmt->execute()){
         return $stmt->insert_id;//(ID der Reservierung wird zurückgegeben);
     }else{
-        echo("Fehler" . $stmt->error);
         return false;
     }
 
 
 }
 
-$reservation_id=filter_input(INPUT_GET,'reservation_id', FILTER_VALIDATE_INT);
-$success=filter_input(INPUT_GET,'success', FILTER_VALIDATE_INT);
+//update verfügbatkeit, gebuchtes zimmer als nicht verfügbar aktualisieren
+function updateRoomAvailability($db_obj,$room_id, $check_in_date, $check_out_date){
+  $isAvailable = checkRoomAvailability($db_obj,$room_id, $check_in_date, $check_out_date);
+  
+  //available` basierend auf der Rückgabe von checkRoomAvailability setzen
+  $available = $isAvailable ? 1 : 0;
+  $query= "UPDATE rooms SET available = ? WHERE room_id = ?";
+  $stmt = $db_obj->prepare($query);
 
-if($reservation_id&&$success==1){
-  $reservation=getReservationByRoomId($db_obj,$reservation_id);
+  if(!$stmt){
+    die("Fehler" . $db_obj->error);
 
-  if(!$reservation){
-    echo'<div class="container mt-5">
-    <p class="text-center my-3">Keine Reservierung gefunden.</p><a href="site_rooms.php">Zurück</a></div>';
-    exit();
-  }
-}else {
-  echo'<div class="container mt-5">
-  <p class="text-center my-3">Ungültige Anfrage.</p><a href="site_rooms.php">Zurück</a></div>';
 }
+$stmt->bind_param("ii", $available, $room_id);
+return $stmt->execute();
+
+}
+  
+//wenn es mehre reservierungen von einem kunden gibt, soll die neuste reservierung angezeigt werden und dann die ältere
+function listReservations($db_obj,$username){
+
+  $query = "SELECT r.*, rm.room_id, rm.price_per_night
+  FROM reservations AS r
+  JOIN rooms AS rm ON r.room_id = rm.room_id 
+  WHERE r.username = ? 
+  ORDER BY r.check_out_date DESC";
+
+  $stmt=$db_obj->prepare($query);
+  if(!$stmt){
+    die("Fehler" . $db_obj->error);
+
+}
+$stmt->bind_param("s", $username);
+$stmt->execute();
+return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 
 
+
+
+
+}
  
 
 ?>

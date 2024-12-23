@@ -4,7 +4,7 @@ require_once '../config/dbaccess.php';//datenbank in fct_rooms.php einbinden
 if(!$db_obj){
   die("Es besteht keine verbindung zur Datenbank.");
 }
-//check ob der "kunden" schon unsere customer ist(bereits in db angelegt, wenn nicht hat er keine rechte reservierungen durchzuführen)
+//check ob der "kunden" schon unsere kunden/user ist(bereits in db angelegt, wenn nicht hat er keine rechte reservierungen durchzuführen)
 
 
 //function verfügbarkeit prüfen
@@ -34,11 +34,11 @@ if(!$stmt){
 }
 $stmt -> bind_param("i", $room_id);//room_id (integer) binden
 $stmt ->execute();
-$stmt->bind_result($is_available);
+$stmt->bind_result($available);
 $stmt->fetch();
 $stmt->close();
 
-if($is_available !=1){
+if($available !=1){
     return "Das ausgewählte Zimmer ist ausgebucht.";
 
 }
