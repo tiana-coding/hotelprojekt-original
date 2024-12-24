@@ -46,7 +46,7 @@
             <li class="nav-item"><span class="navbar-text">Willkommen, <?= htmlspecialchars($_SESSION['username']); ?>!</span></li>
             <!-- admin können Bildupload -->
             <?php if($_SESSION['role']=='admin'): ?> 
-            <li class="nav-item"><a class="nav-link" href="site_upload.php">Bildupload</a></li>
+            <li class="nav-item"><a class="nav-link" href="../include/site_upload.php">Bildupload</a></li>
             <?php endif; ?>
             <li class="nav-item">
             <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_logout.php'); ?>">

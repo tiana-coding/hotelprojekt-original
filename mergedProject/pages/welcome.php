@@ -19,8 +19,7 @@ unset($_SESSION['success_msg']);
 
 
 
-<?php include '../include/header.php' ?>
-<?php include '../include/nav.php' ?>
+<?php include 'header.php' ?>
 <!-- nach der erfolgreichen meldung, wird user mit verzoegerung weiter an login geleitet -->
 <meta http-equiv="refresh" content="1;url=fct_login.php ">
 
@@ -37,5 +36,5 @@ unset($_SESSION['success_msg']);
 
 
 
-<?php include '../include/footer.php'; ?>     
+<?php include 'footer.php'; ?>     
 
