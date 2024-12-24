@@ -29,8 +29,6 @@ if(!isset($_SESSION['username'])){
 
         
         <form class="mx-auto mt-3 pt-3" style="width:50%;" method="POST" action="site_reservation.php">
-            <!-- Hidden-Feld für room_id -->
-            <input type="hidden" name="room_id" value="<?php echo htmlspecialchars($room_id); ?>">
             
             <div class="form-row d-flex justify-content-between">
                 <div class="form-group col-md-6 px-2">
@@ -51,26 +49,18 @@ if(!isset($_SESSION['username'])){
                 <input type="number" class="form-control" id="guests" name="guests" value="<?php echo $guests; ?>" min="1" required>
             </div>
             <div class="form-group">
-            <label for="breakfast">Frühstück:</label>
-            <select name="breakfast" id="breakfast" class="form-control" required>
+            <label for="breakfast">Frühstück:(10€)/Tag</label>
+            <select name="breakfast" id="breakfast" class="form-control" onchange="calculateTotal()"required>
                 <option value="">Bitte wählen...</option>
                 <option value="mit">Mit Frühstück</option>
                 <option value="ohne">Ohne Frühstück</option>
                 
             </select>
         </div>
+        
         <div class="form-group">
-            <label for="children">Kinder</label>
-            <select name="children" id="children" class="form-control" required>
-                <option value="">Bitte wählen...</option>
-                <option value="kein">Keine</option>
-                <option value="Kleinkinder">Kleinkinder</option>
-                <option value="Kinder">Kinder ab 6 Jahre</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="pets">Haustier</label>
-            <select name="pets" id="pets" class="form-control" required>
+            <label for="pets">Haustier:(15€)/Tag</label>
+            <select name="pets" id="pets" class="form-control" onchange="calculateTotal()"required>
                 <option value="">Bitte wählen...</option>
                 <option value="keine">Keine</option>
                 <option value="hund">Hund</option>
@@ -79,8 +69,8 @@ if(!isset($_SESSION['username'])){
             </select>
         </div>
         <div class="form-group">
-            <label for="parking">Parkplatz</label>
-            <select name="parking" id="parking" class="form-control" required>
+            <label for="parking">Parkplatz:(8€)/Tag</label>
+            <select name="parking" id="parking" class="form-control" onchange="calculateTotal()" required>
                 <option value="">Bitte wählen...</option>
                 <option value="ja">Ja</option>
                 <option value="nein">Nein</option>
