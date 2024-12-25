@@ -1,5 +1,9 @@
 <?php
-session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+;
+include 'fct_session.php';
 
 $error_msg = "";
 $success_msg = "";
@@ -33,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //DB-Zugriff Prepared Statements
 
        //check gibt es schon username in der db?
-        $sql_check = "SELECT id, password, role from users WHERE username = ?";
+        $sql_check = "SELECT user_id, password, role from users WHERE username = ?";
         $stmt_check = $db_obj->prepare($sql_check);
         $stmt_check-> bind_param("s", $username);
         $stmt_check->execute();
@@ -48,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           if(password_verify($password, $hashed_password_db)){  
 
             $_SESSION['username'] = $username;//username speichern in session
-            $_SESSION['user_id'] = $user_id;
+            $_SESSION['user_id']= $user_id;
             $_SESSION['role'] = $role;
-            header("Location:../index.php?success=login");
+            header("Location:../index.php");
             exit();
           }else{
             $error_msg = "Ungültige Anmeldedaten. Versuchen Sie es noch mal!";

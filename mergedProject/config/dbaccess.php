@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "Bingki!2020$!";
-$dbname = "users";
+$dbname = "hotelprojekt";
 
 // Create connection
 $db_obj = new mysqli($servername, $username, $password, $dbname);

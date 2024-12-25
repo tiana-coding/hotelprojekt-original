@@ -38,7 +38,7 @@ $stmt->bind_result($is_available);
 $stmt->fetch();
 $stmt->close();
 
-if(!$is_available){
+if($is_available !=1){
     return "Das ausgewählte Zimmer ist ausgebucht.";
 
 }
@@ -51,6 +51,7 @@ if(!$stmt){
 
 }
 $created_at = date('Y-m-d H:i:s');
+
 $stmt->bind_param("ississssss", $room_id, $check_in_date, $check_out_date, $guests, $breakfast, $children, $pets, $parking, $notes, $created_at);
 
 //nach dem executen werden table mit neuen hinzugefügten werten aktualisiert
@@ -72,7 +73,7 @@ if($stmt->execute()) {
     return "$reservation_id";
 
     }else{
-        return "Fehler: " .$stmt->error;
+        return "Fehler: " . $updateStmt->error;
 
     }
 

@@ -1,11 +1,19 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
-
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['role'])&& isset(($_SESSION['username']))) {
     $welcomeMessage = "Willkommen, " . $_SESSION['username'] . "!";
     $loggedIn = true;
-} else {
+} if (!isset($_SESSION['role'])) {
+    $_SESSION['role'] = 'anonym';
+    header("Location:index.php");
+    exit();
+}
+else {
     $welcomeMessage = "Sie sind nicht eingeloggt.";
     $loggedIn = false;
 }
+
 ?>
