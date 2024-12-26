@@ -1,27 +1,19 @@
   
 <?php
-                
+ include 'fct_session.php';       
  include 'header.php';
                 
-                
-if (!isset($_SESSION['username'])) {
-header('Location: fct_login.php');
-                
-exit();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
 }
-                
-if (isset($_SESSION['success_msg']))    
-$success_msg = $_SESSION['success_msg'];
-unset($_SESSION['success_msg']);
-                
+
+// Überprüfen, ob der Benutzer eingeloggt ist
+if (!isset($_SESSION['username'])) {
+  die('<div class="alert alert-danger">Fehler: Benutzer nicht eingeloggt.</div>');
+}
+  $username=$_SESSION['username'];
 ?>
-                     
-<?php if(!empty($success_msg)): ?>
-<div class="alert alert-success">
-<?php echo htmlspecialchars($success_msg);?>
-                
-</div>  
-<?php endif;?>              
+           
     <div class="container-fluid">
       <div class="row vh-100">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar pt-5">
@@ -47,7 +39,7 @@ unset($_SESSION['success_msg']);
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="site_reservationlists.php">
                  
                  Vergangene Reservierungen
                 </a>

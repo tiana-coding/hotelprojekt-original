@@ -14,21 +14,24 @@ include 'fct_upload.php';?>
     ?>
 
     <!-- Formular für den Bildupload -->
-    <form action="site_upload.php" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="title" class="form-label">Titel des Beitrags</label>
-            <input type="text" class="form-control" id="title" name="title" required>
-        </div>
+    <div class="container">
+        <form action="site_upload.php" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Titel des Beitrags</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
 
-        <div class="mb-3">
-            <label for="image" class="form-label">Bild hochladen (nur JPEG)</label>
-            <input type="file" class="form-control" id="image" name="image" accept="image/jpeg" required>
-        </div>
-        <div class="mb-3">
-            <label for="text">Artikeltext:</label>
-            <textarea class="form-control" id="text" name="text" rows="15" placeholder="Schreib hier den Artikeltext..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Beitrag erstellen</button>
-    </form>
+            <div class="mb-3">
+                <label for="image" class="form-label">Bild hochladen (nur JPEG)</label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/jpeg" required>
+            </div>
+            <div class="mb-3">
+                <label for="text">Artikeltext:</label>
+                <textarea class="form-control" id="text" name="text" rows="30" placeholder="Schreib hier den Artikeltext..." required></textarea>
+            </div>
+            <button type="buttoon" class="btn btn-primary">Speichern</button>
+            <button type="submit" class="btn btn-primary">Beitrag erstellen</button>
+        </form>
+    </div>
 </div>
 <?php include 'footer.php'; ?>

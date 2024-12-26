@@ -16,7 +16,7 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username']; // Benutzername aus der Session
 
 // Reservierungen des Benutzers abrufen
-$query = "SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC LIMIT 1";
+$query = "SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC";
 $stmt = $db_obj->prepare($query);
 
 if (!$stmt) {

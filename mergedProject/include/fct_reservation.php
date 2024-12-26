@@ -1,5 +1,6 @@
 <?php
 require_once '../config/dbaccess.php';
+include('fct_session.php');
 
 if(!$db_obj){
   die("Es besteht keine verbindung zur Datenbank.".mysqli_connect_error());
