@@ -27,7 +27,7 @@ if(isset($_SESSION['success'])) {
       <th scope="col">Nachname</th>
       <th scope="col">Username</th>
       <th scope="col">E-Mail</th>
-      <th scope="col">Passwort</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -38,7 +38,7 @@ if(isset($_SESSION['success'])) {
       <td><?php echo htmlspecialchars($kundendaten['nachname']); ?></td>
       <td><?php echo htmlspecialchars($kundendaten['username']); ?></td>
       <td><?php echo htmlspecialchars($kundendaten['email']); ?></td>
-      <td><?php echo htmlspecialchars($kundendaten['passwort']); ?></td>
+      
     </tr>
    </tbody>
 </table> 

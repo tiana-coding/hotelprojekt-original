@@ -103,6 +103,7 @@ function getAvailabilityRoomId($db_obj, $check_in_date, $check_out_date){
 $room_id = getAvailabilityRoomId($db_obj, $check_in_date, $check_out_date);
 if(!$room_id){
   die('<div class="container"><div class="alert alert-success">Kein verfügbares Zimmer im gewählten Zeitraum.</div></div>');
+  
 
 }
  
@@ -115,8 +116,9 @@ if(!$room_id){
  
  }
  $stmt->bind_param("isssissss",$room_id, $username, $check_in_date,$check_out_date,$guests,$breakfast,$pets,$parking,$notes);
+
 if($stmt->execute()){
-echo'<div class="container"><div class="alert alert-success">Ihre Reservierung wurde erfolgreich gespeichert.</div></div>';
+echo'<div class="container mt-4"><div class="alert alert-success">Ihre Reservierung wurde erfolgreich gespeichert. Sie können den Status überprüfen.</div></div>';
 }else {
 echo'<div class="container"><div class="alert alert-warning">Ihre Reservierung wurde nicht gespeichert: ' .$stmt->error.' </div></div>';
 }

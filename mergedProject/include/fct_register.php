@@ -16,13 +16,16 @@ if(!$db_obj){
 // Wenn das Formular abgesendet wurde
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Benutzereingaben validieren
+    $anrede = htmlspecialchars(trim($_POST['anrede']));
+    $vorname = htmlspecialchars(trim($_POST['vorname']));
+    $nachname = htmlspecialchars(trim($_POST['nachname']));
     $username = htmlspecialchars(trim($_POST['username']));
     $email = htmlspecialchars(trim($_POST['email']));
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
     // Einfaches Beispiel: Überprüfen, ob alle Felder ausgefüllt sind
-    if (empty($username) || empty($email) || empty($password) || empty($password_confirm)) {
+    if (empty($anrede) ||empty($vorname) ||empty($nachname) ||empty($username) || empty($email) || empty($password) || empty($password_confirm)) {
         echo "<p class='text-danger'>Alle Felder müssen ausgefüllt werden.</p>";
     }
     // Überprüfen, ob die Passwörter übereinstimmen
@@ -51,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $error_msg="Benuzer existiert, loggen Sie sich bitte ein.";
         } 
         else{//user noch nicht vorhanden, dann insert user into table, user role ist standard 
-              $sql_insert = "INSERT INTO users(username, password, useremail, role) VALUES (?,?,?,'user')";
+              $sql_insert = "INSERT INTO users(anrede, vorname, nachname, username, password, useremail, role) VALUES (?, ?, ?, ?, ?, ?, 'user')";
               $stmt_insert = $db_obj->prepare($sql_insert);
-              $stmt_insert->bind_param("sss", $username, $hashed_password, $email);
+              $stmt_insert->bind_param("ssssss", $anrede, $vorname, $nachname, $username, $hashed_password, $email);
 
             //wenn kundendaten hinzugefügt wurde
            if($stmt_insert->execute()) {
@@ -95,8 +98,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="alert alert-success"><?php echo $success_msg;?></div>
   <?php endif;?>  
 
-
+<!-- formular -->
   <form class="container border rounded bg-grey border-shadow py-5 my-5" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  <div class="mb-3">
+  <label for="anrede" class="form-label">Anrede</label>
+  <select name="anrede" id="anrede" class="florm-select" required>
+    <option value="Herr">Herr</option>
+    <option value="Frau">Frau</option>
+  </select>
+  </div>
+  <div class="mb-3">
+      <label for="vorname" class="form-label">Vorname</label>
+      <input type="text" class="form-control" id="vorname" name="vorname" required>
+      
+  </div>
+  <div class="mb-3">
+      <label for="nachname" class="form-label">Nachname</label>
+      <input type="text" class="form-control" id="nachname" name="nachname" required>
+  </div>
   
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>

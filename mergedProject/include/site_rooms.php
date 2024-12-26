@@ -21,8 +21,8 @@ if(!isset($_SESSION['username'])){
 
 
 <!-- Formular für die Zimmerreservierung -->   
-    <div class="container mt-4">
-        <h1 class="text-center mt-4 pt-4">Zimmerreservierung</h1>
+    <div class="container mt-4 pt-4 min-vh-100">
+        <h1 class="text-center pt-4">Zimmerreservierung</h1>
         <?php if (!isset($_SESSION['username'])): ?>
                 <p class="text-danger my-3">Bitte loggen Sie sich ein oder registrieren Sie sich. Nur registriete Kunden können Zimmerreservierung durchführen</p>
         <?php endif; ?>
@@ -33,13 +33,13 @@ if(!isset($_SESSION['username'])){
             <div class="form-row d-flex justify-content-between">
                 <div class="form-group col-md-6 px-2">
                     <label for="check_in_date" class="form-label">Anreisedatum</label>
-                    <input type="date" class="form-control" id="check_in_date" name="check_in_date" value="<?php echo htmlspecialchars($check_in_date); ?>" required>
+                    <input type="date" class="form-control" id="check_in_date" name="check_in_date" value="<?php echo htmlspecialchars($check_in_date); ?>" min="<?php echo date('Y-m-d'); ?>" required>
                     
                 </div>
 
                 <div class="form-group col-md-6 px-2">
                     <label for="check_out_date" class="form-label">Abreisedatum</label>
-                    <input type="date" class="form-control" id="check_out_date" name="check_out_date" value="<?php echo htmlspecialchars($check_out_date) ; ?>" required>
+                    <input type="date" class="form-control" id="check_out_date" name="check_out_date" value="<?php echo htmlspecialchars($check_out_date) ; ?>" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" required>
                     
                 </div>
             </div>    
@@ -86,7 +86,8 @@ if(!isset($_SESSION['username'])){
         </div>
 
         <!-- Absenden -->
-            <button type="submit" class="btn btn-primary mt-3 pt-2">Reservierung abschicken</button>
+            <a href="site_dashboard.php" class="btn btn-primary mt-5 me-4">Zurück</a>
+            <button type="submit" class="btn btn-primary mt-5 pt-2">Reservieren</button>
             
         </form>
     
