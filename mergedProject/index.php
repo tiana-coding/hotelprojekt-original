@@ -5,7 +5,7 @@
   <!-- First look at the page -->
 <div class="container-fluid hero">
   
-  <div class="hero-content text-center text-white">
+  <div class="hero-content text-center text-white py-5 w-100">
     <div class="container">
 
         <h1 class="display-5 fw-bold">Blick and Glück</h1>

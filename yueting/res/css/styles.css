@@ -35,7 +35,7 @@
     background-color: var(--bs-primary) !important;
   }
   .btn-primary{
-    color: #fff;
+    color: #bfa24c;
     background-color: var(--bs-brown);
     border-color: var(--bs-primary);
   }
@@ -51,14 +51,6 @@ body, html {
 }
 .hero{
   background-image: url("../assets/img/hero.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  height: 100vh;
-  
-  
-
   
 }
 
