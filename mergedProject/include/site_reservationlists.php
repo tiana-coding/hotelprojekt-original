@@ -1,33 +1,34 @@
 <?php
-require_once '../config/dbaccess.php';
 include 'fct_session.php';
+require_once'../config/dbaccess.php';
 include 'header.php';
 
-// Session nur starten, wenn sie noch nicht aktiv ist
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+//falls es noch kein session existiert
+if(session_status()== PHP_SESSION_NONE){
+  session_start();
 }
 
-// Überprüfen, ob der Benutzer eingeloggt ist
-if (!isset($_SESSION['username'])) {
-    die('<div class="alert alert-danger">Fehler: Benutzer nicht eingeloggt.</div>');
+//wenn der user nicht eingeloggt ist
+if(!isset($_SESSION['username'])){
+  echo('Bitte loggen Sie sich ein!');
 }
 
-$username = $_SESSION['username']; // Benutzername aus der Session
+//sonst ist der user eingeloggt und kann die vergangenen reservierungen nachsehen
+$username = $_SESSION['username'];
 
-// Reservierungen des Benutzers abrufen
-$query = "SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC";
-$stmt = $db_obj->prepare($query);
+$sql="SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC";
+$stmt=$db_obj->prepare($sql);
 
-if (!$stmt) {
-    die('<div class="alert alert-danger">Fehler beim Abrufen der Reservierungen: ' . htmlspecialchars($db_obj->error) . '</div>');
+if(!$stmt){
+  die('<div class="alter alter-danger">Fehler beim Abrufen der Reservierungen:' .htmlspecialchars($db_obj->error).'</div>');
 }
-
 $stmt->bind_param("s", $username);
 $stmt->execute();
-$reservations = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$reservations=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
 
 ?>
+<!-- Reservierungsliste ausgeben -->
 <div class="container mt-5">
   <h1 class="text-center my-3">Ihre Reservierungen</h1>
   
@@ -73,6 +74,8 @@ $reservations = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   <?php else: ?>
     <div class="alert alert-info">Keine Reservierungen gefunden.</div>
   <?php endif; ?>
+  <a href="site_dashboard.php" class="btn btn-primary mt-5 me-4">Zurück</a>
+    
 </div>
 
 <?php include 'footer.php'; ?>

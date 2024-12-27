@@ -1,35 +1,41 @@
 <?php
-require_once '../config/dbaccess.php';
 include 'fct_session.php';
+require_once'../config/dbaccess.php';
 include 'header.php';
 
-// Session nur starten, wenn sie noch nicht aktiv ist
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+//falls es noch kein session existiert
+if(session_status()== PHP_SESSION_NONE){
+  session_start();
 }
 
-// Überprüfen, ob der Benutzer eingeloggt ist
-if (!isset($_SESSION['username'])) {
-    die('<div class="alert alert-danger">Fehler: Benutzer nicht eingeloggt.</div>');
+//wenn der user nicht eingeloggt ist
+if(!isset($_SESSION['username'])){
+  echo('Bitte loggen Sie sich ein!');
 }
 
-$username = $_SESSION['username']; // Benutzername aus der Session
+//sonst ist der user eingeloggt und kann die vergangenen reservierungen nachsehen
+$username = $_SESSION['username'];
 
-// Reservierungen des Benutzers abrufen
-$query = "SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC LIMIT 1";
-$stmt = $db_obj->prepare($query);
+$sql="SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC LIMIT 1";
+$stmt=$db_obj->prepare($sql);
 
-if (!$stmt) {
-    die('<div class="alert alert-danger">Fehler beim Abrufen der Reservierungen: ' . htmlspecialchars($db_obj->error) . '</div>');
+if(!$stmt){
+  die('<div class="alter alter-danger">Fehler beim Abrufen der Reservierungen:' .htmlspecialchars($db_obj->error).'</div>');
 }
-
 $stmt->bind_param("s", $username);
 $stmt->execute();
-$reservations = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$reservations=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+
+/*if(empty($reservations)){
+  echo'<div class="alert alert-warning">Keine Reservierung gefunden.</div>';
+}*/
 
 ?>
+
+<!-- neueste Reservierung ausgeben -->
 <div class="container mt-5">
-  <h1 class="text-center my-3">Ihre Reservierungen</h1>
+  <h1 class="text-center my-3">Ihre Reservierung</h1>
   
   <?php if (!empty($reservations)): ?>
     <table class="table table-bordered mt-3 p-3">
@@ -37,7 +43,6 @@ $reservations = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         <tr>
           <th scope="col">#</th>
           <th scope="col">Reservierungs-ID</th>
-          <th scope="col">Zimmer-ID</th>
           <th scope="col">Check-in Datum</th>
           <th scope="col">Check-out Datum</th>
           <th scope="col">Gäste</th>
@@ -55,7 +60,7 @@ $reservations = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
           <tr>
             <th scope="row"><?php echo $index + 1; ?></th>
             <td><?php echo htmlspecialchars($reservation['reservation_id'], ENT_QUOTES, 'UTF-8'); ?></td>
-            <td><?php echo htmlspecialchars($reservation['room_id'], ENT_QUOTES, 'UTF-8'); ?></td>
+            
             <td><?php echo htmlspecialchars($reservation['check_in_date'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td><?php echo htmlspecialchars($reservation['check_out_date'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td><?php echo htmlspecialchars($reservation['guests'], ENT_QUOTES, 'UTF-8'); ?></td>
@@ -73,6 +78,9 @@ $reservations = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   <?php else: ?>
     <div class="alert alert-info">Keine Reservierungen gefunden.</div>
   <?php endif; ?>
+    <a href="site_dashboard.php" class="btn btn-primary mt-5 me-4">Zurück</a>
+    
+            
 </div>
 
 <?php include 'footer.php'; ?>

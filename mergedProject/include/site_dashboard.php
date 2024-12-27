@@ -71,7 +71,7 @@ if (!isset($_SESSION['username'])) {
                 </a>
               </li>
              <?php endif;?>
-             <div class="d-flex border-top mt-3 pt-3">
+             <div class="d-flex border-top mt-3 pt-3 ps-3">
               <a href="fct_logout.php" class="btn btn-sm btn-outline-primary w-auto">logout</a>
              </div>
              
