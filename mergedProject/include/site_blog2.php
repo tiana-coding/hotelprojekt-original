@@ -1,9 +1,10 @@
 <?php 
 include 'header.php';
-include('../config/dbaccess.php');
+
+include '../config/dbaccess.php';
 
 // Blog-Artikel aus der Datenbank abrufen
-$sql = "SELECT * FROM blog_posts ORDER BY created_at DESC";
+$sql = "SELECT * FROM news ORDER BY created_at DESC";
 $result = $db_obj->query($sql);
 $news_items = [];
 
@@ -24,10 +25,10 @@ if ($result->num_rows > 0) {
           <div class="blog-post">
             <h2 class="blog-post-title"><?= htmlspecialchars($news['title']) ?></h2>
             <p class="blog-post-meta"><?= htmlspecialchars($news['created_at']) ?> by <a href="#">Admin</a></p>
-            <?php if (!empty($news['image'])): ?>
-              <img src="<?= htmlspecialchars($news['image']) ?>" class="img-thumbnail mb-3" style="width: 100%; max-width: 300px; height: auto;" alt="Blog Thumbnail">
+            <?php if (!empty($news['thumbnail_path'])): ?>
+              <img src="/hotelprojekt-original/mergedProject/<?= htmlspecialchars($news['thumbnail_path']) ?>" class="img-thumbnail mb-3" style="width: 100%; max-width: 300px; height: auto;" alt="Blog Thumbnail">
             <?php endif; ?>
-            <p><?= nl2br(htmlspecialchars(mb_substr($news['text'], 0, 200))) ?>...</p>
+            <p><?= nl2br(htmlspecialchars(mb_substr($news['content'], 0, 200))) ?>...</p>
             <a href="article.php?id=<?= $news['id'] ?>" class="btn btn-primary">Weiterlesen</a>
             <hr>
           </div>
