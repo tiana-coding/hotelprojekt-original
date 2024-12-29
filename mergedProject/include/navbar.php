@@ -1,6 +1,7 @@
 <?php include('fct_session.php'); ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+ 
   <div class="container-fluid">
     <a class="navbar-brand" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/index.php'); ?>">
       <img src="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/res/assets/img/pct_hotel-emoji.png'); ?>" height="28px"/></a>
@@ -39,21 +40,38 @@
             <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_login.php'); ?>">
               <h4>Login</h4></a>
           </li>
-          <?php 
+      <?php 
       // user oder admin können sich ausloggen
-          if (isset($_SESSION['username'])): ?>
-        
-            <li class="nav-item"><span class="navbar-text">Willkommen, <?= htmlspecialchars($_SESSION['username']); ?>!</span></li>
-            <!-- admin können Bildupload -->
-            <?php if($_SESSION['role']=='admin'): ?> 
-            <li class="nav-item"><a class="nav-link" href="../include/site_upload.php">Bildupload</a></li>
-            <?php endif; ?>
-            <li class="nav-item">
-            <a class="nav-link" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_logout.php'); ?>">
-              Logout</a>
-            </li>
+      if (isset($_SESSION['role'])&& $_SESSION['role']=='user'): ?>   
+      <div class="dropdown">
+        <button class="btn btn-warning dropdown-toggle" id="dropdownMenubutton" data-bs-toggle="dropdown" aria-expanded="false">Willkommen, <?= htmlspecialchars($_SESSION['username']); ?>!</button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenubutton">
+            <li><a class="dropdown-item" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_dashboard.php'); ?>">Kundenprofil</a></li> 
           
-       <?php endif; ?>   
+             <!-- loggout -->
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_logout.php'); ?>">
+                Logout</a></li>
+        </ul>
+       </div>        
+        <?php endif; ?>   
+
+        <!-- admin können Bildupload -->
+        <?php if(isset($_SESSION['role'])&& $_SESSION['role']=='admin'):?> 
+          <div class="dropdown">
+          <button class="btn btn-warning dropdown-toggle" id="dropdownMenubutton" data-bs-toggle="dropdown" aria-expanded="false">Willkommen, <?= htmlspecialchars($_SESSION['role']); ?>!</button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenubutton">
+            <li><a class="dropdown-item" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_dashboard.php'); ?>">Adminkonto</a></li>
+        
+             <!-- loggout -->
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/fct_logout.php'); ?>">
+                Logout</a></li>
+          </ul> 
+          </div>        
+          <?php endif; ?>
+               
+             
       
       </ul>
     </div>

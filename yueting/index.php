@@ -10,7 +10,7 @@
   <div class="hero-content text-center text-white">
     <div class="container">
 
-        <h1 class="display-5 fw-bold">Blick and Glück</h1>
+        <h1 class="display-5 fw-bold">Blick und Glück</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4 display-7 fw-bold">Resort und SPA Hotel</p>
         </div> 
@@ -39,7 +39,7 @@
         </div>
     </div>
       
-      <div class="container text-center  p-2 rounded">
+      <div class="container text-center p-2 rounded">
         <div class="row align-items-center mb-4">
     
           <div class="col-12 col-md-4">

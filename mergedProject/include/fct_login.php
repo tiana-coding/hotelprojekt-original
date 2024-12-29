@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!-- login -->
 <?php include '../include/header.php';?>
 
-<div class="container-fluid my-5" >
+<div class="container-fluid vh-100 my-5" >
   <h2 class="text-center">Login</h2>  
   <!-- anzeigen fehlermeldungen oder erfolg -->
    <?php if(!empty($error_msg)): ?>

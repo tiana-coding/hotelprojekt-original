@@ -14,6 +14,9 @@
 
         <link href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/res/css/styles.css'); ?>" rel="stylesheet">
     </head>
-<body id="page-top">
 
-<?php include 'navbar.php';?>
+
+<?php include 'navbar.php';?>    
+
+    
+

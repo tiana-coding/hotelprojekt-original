@@ -15,7 +15,7 @@
             }
             if($_SERVER["REQUEST_METHOD"] ==="POST"){
 
-                $anrede = isset($_POST['sex']) ? reset_input($_POST['sex']) :'';
+                $anrede = isset($_POST['anrede']) ? reset_input($_POST['anrede']) :'';
                 $vorname = isset($_POST['vorname']) ? reset_input($_POST['vorname']) :'';
                 $nachname = isset($_POST['nachname']) ? reset_input($_POST['nachname']) :'';
                 $username = isset($_POST['username']) ? reset_input($_POST['username']) :'';
@@ -54,8 +54,8 @@
                 if (empty($errors)) {
 
                     $_SESSION['registered_user'] = array (
-                        'sex'=> $anrede,
-                        'anrede' => $anrede,
+                        'anrede'=> $anrede,
+                
                         'vorname' => $vorname,
                         'nachname' => $nachname,
                         'username'=> $username,
@@ -83,7 +83,7 @@
             $input = $_SESSION['input'] ?? [];
             unset($_SESSION['errors'], $_SESSION['input']);
 
-            $anrede =$input['sex'] ?? '';
+            $anrede =$input['anrede'] ?? '';
             $vorname= $input['vorname'] ??'';
             $nachname= $input['nachname'] ??'';
             $username= $input['username'] ??'';
@@ -104,10 +104,10 @@
                     <div class="container">
                         <label>Anrede</label>
                         
-                        <input  type="radio" name="sex" id="female" value="female" <?php echo ($anrede == 'female') ? 'checked':'';?>>
+                        <input  type="radio" name="anrede" id="female" value="female" <?php echo ($anrede == 'female') ? 'checked':'';?>>
                         <label  for="female">Frau</label>
                 
-                        <input  type="radio" name="sex" id="male" value="male" <?php echo ($anrede == 'male') ? 'checked':'';?>>
+                        <input  type="radio" name="anrede" id="male" value="male" <?php echo ($anrede == 'male') ? 'checked':'';?>>
                         <label  for="male">Herr</label>
                     </div>
                 </div>

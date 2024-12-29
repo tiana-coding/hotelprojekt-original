@@ -16,7 +16,7 @@ if(!isset($_SESSION['username'])){
 //sonst ist der user eingeloggt und kann die vergangenen reservierungen nachsehen
 $username = $_SESSION['username'];
 
-$sql="SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC LIMIT 1";
+$sql="SELECT * FROM reservations WHERE username = ? ORDER BY created_at DESC";
 $stmt=$db_obj->prepare($sql);
 
 if(!$stmt){
@@ -27,15 +27,10 @@ $stmt->execute();
 $reservations=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
-/*if(empty($reservations)){
-  echo'<div class="alert alert-warning">Keine Reservierung gefunden.</div>';
-}*/
-
 ?>
-
-<!-- neueste Reservierung ausgeben -->
+<!-- Reservierungsliste ausgeben -->
 <div class="container mt-5">
-  <h1 class="text-center my-3">Ihre Reservierung</h1>
+  <h1 class="text-center my-3">Ihre Reservierungen</h1>
   
   <?php if (!empty($reservations)): ?>
     <table class="table table-bordered mt-3 p-3">
@@ -43,6 +38,7 @@ $stmt->close();
         <tr>
           <th scope="col">#</th>
           <th scope="col">Reservierungs-ID</th>
+          <th scope="col">Zimmer-ID</th>
           <th scope="col">Check-in Datum</th>
           <th scope="col">Check-out Datum</th>
           <th scope="col">Gäste</th>
@@ -60,7 +56,7 @@ $stmt->close();
           <tr>
             <th scope="row"><?php echo $index + 1; ?></th>
             <td><?php echo htmlspecialchars($reservation['reservation_id'], ENT_QUOTES, 'UTF-8'); ?></td>
-            
+            <td><?php echo htmlspecialchars($reservation['room_id'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td><?php echo htmlspecialchars($reservation['check_in_date'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td><?php echo htmlspecialchars($reservation['check_out_date'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td><?php echo htmlspecialchars($reservation['guests'], ENT_QUOTES, 'UTF-8'); ?></td>
@@ -78,9 +74,8 @@ $stmt->close();
   <?php else: ?>
     <div class="alert alert-info">Keine Reservierungen gefunden.</div>
   <?php endif; ?>
-    <a href="site_dashboard.php" class="btn btn-primary mt-5 me-4">Zurück</a>
+  <a href="site_dashboard.php" class="btn btn-primary mt-5 me-4">Zurück</a>
     
-            
 </div>
 
 <?php include 'footer.php'; ?>
