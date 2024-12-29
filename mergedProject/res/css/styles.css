@@ -34,12 +34,19 @@
   .bg-primary{
     background-color: var(--bs-primary) !important;
   }
-  .btn-primary{
+  .btn-primary {
     color: #fff;
     background-color: var(--bs-brown);
     border-color: var(--bs-primary);
   }
-
+  
+  .btn-custom {
+    width: 100% !important; /* Einheitliche Breite */
+    max-width: 150px !important; /* Maximale Breite */
+    padding: 10px !important; /* Einheitlicher Innenabstand */
+    font-size: 14px !important; /* Einheitliche Schriftgröße */
+    text-align: center !important; /* Textausrichtung */
+}
 
 body, html {
   margin: 0;

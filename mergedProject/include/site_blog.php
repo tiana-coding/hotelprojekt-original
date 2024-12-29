@@ -6,17 +6,19 @@ require '../config/dbaccess.php';
 //laden news aus der db
 
 $sql = "SELECT * FROM news ORDER BY created_at DESC";
+$stmt = $db_obj->prepare($sql);
 
-$result = $db_obj->query($sql);
-$news_items = [];//as array
+if(!$stmt){
+    die('<div class="alert alert-danger">Fehler beim Abrufen der Artikel: ' . htmlspecialchars($db_obj->error) . '</div>');
+}
+$stmt->execute();
+$result=$stmt->get_result();
+$news_items = [];
 
 if($result->num_rows>0){
-    while($row = $result->fetch_assoc()){
-        $news_items[]=$row;
-    }
-} else {
-    $news_items = false;//kein Artikel vorhanden
+    $news_items=$result->fetch_all(MYSQLI_ASSOC);
 }
+$stmt->close();
 ?>
 
 <main role="main" class="container mt-5 pt-5">
