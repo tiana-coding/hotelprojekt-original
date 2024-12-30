@@ -50,8 +50,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     //Passwort überprüfen, wenn reset werden soll!!
     //wenn alle felder ausgefüllt sind
+   
 
-    if(!empty($passwort) && !empty($reset_passwort) && !empty($reset_passwort_wiederholt)){
+    if(!empty($reset_passwort) && !empty($reset_passwort_wiederholt)){
     
         
         if(password_verify($passwort, $kundendaten['password'])){
@@ -64,6 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $errors['reset_passwort'] = "Passwörter stimmen nicht überein!";
         }
     }else {
+        
         $errors['passwort']= "Das alte Passwort ist falsch, bitte geben Sie das richtige Passwort ein!";
     }
 }

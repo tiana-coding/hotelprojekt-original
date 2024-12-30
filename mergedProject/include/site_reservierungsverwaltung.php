@@ -1,11 +1,15 @@
 <?php
-include 'fct_session.php';
-require_once '../config/dbaccess.php';
 include 'header.php';
+require_once '../config/dbaccess.php';
 
-// Prüfen, ob der Benutzer Adminrechte hat (Optional)
+
+// Prüfen, ob der Benutzer Adminrechte hat 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
+if(!$_SESSION['role'] || $_SESSION['role']!=='admin'){
+    echo '<div class="alert alert-danger">Sie haben keine Berechtigung.</div>';
+    exit();
 }
 if (isset($_GET['message'])) {
     switch ($_GET['message']) {
@@ -36,7 +40,7 @@ $reservations = $result->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 ?>
 
-<div class="container mt-5">
+<div class="container-fluid mt-5">
     <h1 class="text-center my-3">Alle Reservierungen</h1>
 
     <?php if (!empty($reservations)): ?>
@@ -69,8 +73,8 @@ $stmt->close();
                         <td><?= htmlspecialchars($reservation['guests'], ENT_QUOTES, 'UTF-8') ?></td>
                         <td><?= htmlspecialchars($reservation['status'], ENT_QUOTES, 'UTF-8') ?></td>
                         <td><?= htmlspecialchars($reservation['created_at'], ENT_QUOTES, 'UTF-8') ?></td>
-                        <td><?= htmlspecialchars($reservation['bearbeitet_von'] ?? 'N/A', ENT_QUOTES, 'UTF-8') ?></td>
-                        <td><?= htmlspecialchars($reservation['bearbeitet_am'] ?? 'N/A', ENT_QUOTES, 'UTF-8') ?></td>
+                        <td><?= htmlspecialchars($reservation['bearbeitet_von'], ENT_QUOTES, 'UTF-8') ?></td>
+                        <td><?= htmlspecialchars($reservation['bearbeitet_am'], ENT_QUOTES, 'UTF-8') ?></td>
                         <td>
                             <!-- Status ändern -->
                             <form method="POST" action="site_update_reservation.php">

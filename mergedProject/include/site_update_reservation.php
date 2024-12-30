@@ -1,14 +1,17 @@
 <?php
-
-include 'fct_session.php';
-require_once '../config/dbaccess.php';
 include 'header.php';
+require_once '../config/dbaccess.php';
+
 
 // Prüfen, ob der Benutzer Adminrechte hat (Optional)
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
+if(!isset($_SESSION['role'])||($_SESSION['role']!=='admin')){
+    echo '<div class="alert alert-danger">Sie haben keine Berechtigung!</div>';
+    include 'footer.php';
+    exit(); 
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reservation_id'], $_POST['status'])) {
     $reservation_id = intval($_POST['reservation_id']);
     $status = $_POST['status'];
@@ -42,5 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reservation_id'], $_P
     echo '<div class="alert alert-info">Es wurden keine Daten übermittelt.</div>';
 }
 
-include 'footer.php';
 ?>
+ <form method="POST" action="site_reservierungsverwaltung.php">
+    <button type="submit" class="btn btn-primary btn-sm">zurück</button>
+    </form>
+
+<?php 
+include 'footer.php';?>
