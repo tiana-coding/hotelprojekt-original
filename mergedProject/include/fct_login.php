@@ -37,19 +37,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //DB-Zugriff Prepared Statements
 
        //check gibt es schon username in der db?
-        $sql_check = "SELECT user_id, password, role from users WHERE username = ?";
+        $sql_check = "SELECT user_id, password, role, status from users WHERE username = ?";
         $stmt_check = $db_obj->prepare($sql_check);
         $stmt_check-> bind_param("s", $username);
         $stmt_check->execute();
         $stmt_check->store_result();
-
+        if($stmt_check->num_rows==0){
+          $error_msg ="Es liegt keine Logindaten für Sie vor.";
+        }
         //wenn username schon existiert
         if($stmt_check->num_rows>0){
-          $stmt_check->bind_result($user_id, $hashed_password_db, $role);
+          $stmt_check->bind_result($user_id, $hashed_password_db, $role, $status);
           $stmt_check->fetch();
-
+          if($status=='inactive'){
+            $error_msg ="Ihr Konto ist inaktive, sie können nicht einloggen.";
+          }
           //passwort prüfen
-          if(password_verify($password, $hashed_password_db)){  
+            elseif(password_verify($password, $hashed_password_db)){  
 
             $_SESSION['username'] = $username;//username speichern in session
             $_SESSION['user_id']= $user_id;
@@ -57,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location:../index.php");
             exit();
           }else{
-            $error_msg = "Ungültige Anmeldedaten. Versuchen Sie es noch mal!";
+            $error_msg = "Username oder Passwort war falsch. Versuchen Sie es noch mal!";
           }
   
         } 

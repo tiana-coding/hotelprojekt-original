@@ -17,7 +17,7 @@
  
 
 //db verbinden
-$sql="SELECT * FROM reservations ORDER BY created_at DESC";
+$sql="SELECT * FROM reservations ORDER BY status DESC";
 $stmt=$db_obj->prepare($sql);
 
 if(!$stmt){
@@ -40,7 +40,7 @@ $stmt->close();
 ?>
 
 <div class="container mt-5">
-  <h1 class="text-center my-3">Ihre Reservierungen</h1>
+  <h1 class="text-center my-3">Reservierungen</h1>
   
   <?php if (!empty($reservations)): ?>
     <table class="table table-bordered mt-3 p-3">
