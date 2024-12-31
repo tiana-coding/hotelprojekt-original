@@ -59,13 +59,13 @@ if (!isset($_SESSION['username'])) {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="site_reservierungsverwaltung.php">
+                <a class="nav-link" href="admin_reservierung.php">
                 
                   Reservierungsverwaltung
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="site_Userverwaltung.php">
+                <a class="nav-link" href="admin_user.php">
                 
                 Userverwaltung
                 </a>
