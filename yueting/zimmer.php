@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: conform.php');
     exit();
 }
-<?php include 'include/header.php';?>
+ include 'include/header.php';?>
 
   <!-- Navbar -->
 
