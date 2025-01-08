@@ -44,13 +44,13 @@
 
 ## 7) Zimmer reservieren
 
-- [ ] a.i) Neue Reservierung anlegen
-- [ ] a.ii) Liste eigener Reservierungen anzeigen
-- [ ] a.iii) Reservierungen mit Statuswerten
-- [ ] b) Features (Zeitraum, Frühstück, Parkplatz, etc.)
-- [ ] c) Aufpreise für Zusatzoptionen
+- [x] a.i) Neue Reservierung anlegen
+- [x] a.ii) Liste eigener Reservierungen anzeigen
+- [x] a.iii) Reservierungen mit Statuswerten
+- [x] b) Features (Zeitraum, Frühstück, Parkplatz, etc.)
+- [x] c) Aufpreise für Zusatzoptionen
 - [ ] d) Zimmerverfügbarkeit berücksichtigen
-- [ ] e) Datum der Reservierung speichern
+- [x] e) Datum der Reservierung speichern
 
 ## 8) Reservierungsverwaltung für Admins
 

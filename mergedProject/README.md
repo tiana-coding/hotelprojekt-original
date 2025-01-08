@@ -31,6 +31,10 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [x] site_logout.php
 - [x] site_profil.php
 - [x] site_profilverwaltung.php
+- [ ] site_reservation_process.php
+- [x] site_reservation.php
+- [x] site_reservationlists.php
+- [x] site_rooms.php
 - [x] site_upload.php
 - [x] update_user.php
 

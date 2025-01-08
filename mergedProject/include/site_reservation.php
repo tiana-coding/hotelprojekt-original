@@ -1,10 +1,12 @@
+<!-- Diese Datei gibt die neueste Reservierung eines eingeloggten Users aus. -->
+ 
 <?php
 include 'fct_session.php';
 require_once'../config/dbaccess.php';
 
 include 'header.php';
 
-//falls es noch kein session existiert
+//falls noch keine session existiert
 if(session_status()== PHP_SESSION_NONE){
   session_start();
 }
@@ -31,7 +33,6 @@ $stmt->close();
 /*if(empty($reservations)){
   echo'<div class="alert alert-warning">Keine Reservierung gefunden.</div>';
 }*/
-
 ?>
 
 <!-- neueste Reservierung ausgeben -->
@@ -79,9 +80,8 @@ $stmt->close();
   <?php else: ?>
     <div class="alert alert-info">Keine Reservierungen gefunden.</div>
   <?php endif; ?>
-    <a href="site_dashboard.php" class="btn btn-primary mt-5 me-4">Zurück</a>
-    
-            
+    <a href="site_dashboard.php" class="btn btn-primary mt-5 me-4">Zurück</a>      
 </div>
+
 
 <?php include 'footer.php'; ?>
