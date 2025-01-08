@@ -11,9 +11,9 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [x] index.php
 - [x] fct_session.php
 - [x] header.php 
-- [ ] footer.php
+- [x] footer.php
 - [ ] navbar.php
-- [ ] style.css
+- [ ] styles.css
 
 ## evtl. noch zu ändern
 
