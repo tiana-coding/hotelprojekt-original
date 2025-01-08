@@ -1,10 +1,11 @@
-<?php
+<!-- Diese Seite zeigt die Newsbeiträge für alle sichtbar an. -->
 
+<?php
+# include stuff
 include 'header.php';
 require '../config/dbaccess.php';
 
 //laden news aus der db
-
 $sql = "SELECT * FROM news ORDER BY created_at DESC";
 $stmt = $db_obj->prepare($sql);
 
@@ -21,6 +22,7 @@ if($result->num_rows>0){
 $stmt->close();
 ?>
 
+<!-- Blogbeiträge aus Datenbank in Hauptteil der Seite anzeigen -->
 <main role="main" class="container mt-5 pt-5">
     <div class="row">
       <div class="col-md-8 blog-main">
@@ -42,6 +44,7 @@ $stmt->close();
     <?php endif; ?>    
      </div>
 
+     <!-- Sidebar mit Archiv (leer, aber vorhanden) -->
      <aside class="col-md-4 blog-sidebar">
         <div class="p-4 mb-3 bg.light rounded">
             <h4>Über</h4>
@@ -59,6 +62,6 @@ $stmt->close();
     </div> 
 </main>
 <?php $db_obj->close();
+
+# footer und so
 include 'footer.php'; ?>
-
-

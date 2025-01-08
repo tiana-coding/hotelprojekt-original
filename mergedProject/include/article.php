@@ -1,11 +1,13 @@
-
+<!-- Diese Seite stellt die einzelnen Blogartikel im Ganzen dar.
+ Sie wird von site_blog.php aus für je einen bestimmten Artikel aufgerufen. -->
 
 <?php 
-
+# das übliche einbinden
 include 'fct_session.php';
 require_once '../config/dbaccess.php';
 include 'header.php';
 
+# abrufen des Artikels aus der Datenbank und Fehlermeldungen, falls dabei etwas schief läuft
 if(!isset($_GET['id'])){
     die('<div class="alert alert-danger">Artikelnummer ist ungültig</div>');
 }
@@ -31,6 +33,7 @@ $stmt->close();
 ?>
 
 
+<!-- Optische Darstellung im main -->
 <main role="main" class="container mt-5 pt-5">
     <div class="row">
       <div class="col-md-10 blog-main">
@@ -49,6 +52,5 @@ $stmt->close();
     </div>
     
 </main>
-<?php
-include 'footer.php';
-?>
+
+<?php include 'footer.php'; ?><!-- footer halt -->

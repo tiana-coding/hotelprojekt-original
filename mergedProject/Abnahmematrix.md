@@ -27,19 +27,19 @@
 
 ## 5) News-Beiträge von Admins
 
-- [ ] a) Beiträge mit Bildern anzeigen (neueste oben)
-- [ ] b) Nur Bilddateien-Upload erlaubt
-- [ ] b.i) Bilder verkleinern & Thumbnails darstellen
-- [ ] c) Übersichtliche Darstellung der Beiträge
-- [ ] d) Datum der Beiträge anzeigen
+- [x] a) Beiträge mit Bildern anzeigen (neueste oben)
+- [x] b) Nur Bilddateien-Upload erlaubt
+- [x] b.i) Bilder verkleinern & Thumbnails darstellen
+- [x] c) Übersichtliche Darstellung der Beiträge
+- [x] d) Datum der Beiträge anzeigen
 
 ## 6) Userverwaltung für Admins
 
-- [ ] a) Liste aller User anzeigen
-- [ ] b) Profilbearbeitung aller User
-- [ ] c) Passwörter der User ändern
-- [ ] d) Userstatus aktiv/inaktiv ändern
-- [ ] e) Inaktive User können nicht einloggen
+- [x] a) Liste aller User anzeigen
+- [x] b) Profilbearbeitung aller User
+- [x] c) Passwörter der User ändern
+- [x] d) Userstatus aktiv/inaktiv ändern
+- [x] e) Inaktive User können nicht einloggen
 - [ ] f) Reservierungsdetails anzeigen
 
 ## 7) Zimmer reservieren

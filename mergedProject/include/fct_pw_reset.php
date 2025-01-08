@@ -1,3 +1,5 @@
+<!-- Diese Datei erlaubt es dem Admin, das Passwort eines Benutzers zu verändern. -->
+
 <?php
     include 'fct_session.php';
     include 'header.php';
@@ -72,14 +74,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     
     $update_stmt->close();
-
-
-
-
-
 }
-
 ?>
+
+<!-- Formular -->
 <div class="container mt-5" style="max-width: 600px;">
    
     <p class="text-center"> <strong><?= htmlspecialchars($user['username']); ?></strong></p>

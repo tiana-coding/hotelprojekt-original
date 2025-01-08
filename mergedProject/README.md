@@ -12,20 +12,27 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 ### include
 
+- [x] admin_user.php
+- [x] article.php
+- [x] delete_user.php
 - [x] fct_login.php
-- [ ] fct_logout.php
+- [x] fct_logout.php
+- [x] fct_pw_reset.php
 - [x] fct_register.php
 - [x] fct_session.php
+- [x] fct_upload.php
 - [x] footer.php
 - [x] header.php 
 - [x] navbar.php
-- [ ] site_blog.php
+- [x] site_blog.php
 - [x] site_dashboard.php
 - [x] site_help.php
 - [x] site_impressum.php
 - [x] site_logout.php
 - [x] site_profil.php
 - [x] site_profilverwaltung.php
+- [x] site_upload.php
+- [x] update_user.php
 
 ### config
 

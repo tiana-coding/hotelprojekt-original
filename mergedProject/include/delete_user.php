@@ -1,3 +1,5 @@
+<!-- Seite, um als Admin einen anderen Benutzer löschen zu können (nur für inaktive Nutzer möglich) -->
+
 <?php
     include 'fct_session.php';
     include 'header.php';
@@ -8,7 +10,7 @@
     session_start();
  }
 
-//prüfen ob der user Admin ist, wenn nicht erfüllt sofort alles beende.
+//prüfen ob der user Admin ist, wenn nicht erfüllt sofort alles beenden.
  if(!$_SESSION['role']||$_SESSION['role']!=='admin'){
    echo"<div class='alert alert-danger'> Sie haben keine Berechtigung.</div>";
    include 'footer.php';
