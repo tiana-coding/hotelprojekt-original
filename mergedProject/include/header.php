@@ -1,3 +1,5 @@
+<!-- Diese Datei besteht nur aus der Funktion für die aktive Session. Sie wird auf allen anderen eingebunden -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,7 +18,4 @@
     </head>
 
 
-<?php include 'navbar.php';?>    
-
-    
-
+<?php include 'navbar.php';?>

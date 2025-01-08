@@ -8,9 +8,9 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 (Hier werden im Moment nur fertig kommentierte files gelistet)
 
-- index.php
-- fct_session.php
-- header.php (not done)
+- [x] index.php
+- [x] fct_session.php
+- [] header.php 
 
 ## evtl. noch zu ändern
 
