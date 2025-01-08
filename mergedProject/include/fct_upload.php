@@ -1,3 +1,5 @@
+<!-- Diese Datei stellt Funktionalitäten zur Verfügung, welche in site_upload benötigt werden. -->
+
 <?php
 
 /*error_log("Thumbnail wird erstellt...");
@@ -94,10 +96,6 @@ function handleImageUpload(){
                 'message' => 'Fehler beim Erstellen des Thumbnails.'
             ]; 
         } 
-        
-
-
-    
     }
     return [
         'success'=> false,
@@ -170,6 +168,4 @@ function createThumbnail($source_image_path, $thumbnail_path, $thumb_width, $thu
     return false;
    
 }
-   
-
 ?>

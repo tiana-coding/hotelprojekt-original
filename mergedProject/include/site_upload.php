@@ -1,10 +1,11 @@
-
+<!-- Diese Seite liefert ein Upload-Formular für Admins, um neue Blogbeiträge zu erstellen -->
 
 <?php 
 /*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 */
+# klassisches einbinden, diesmal mit fct_upload.php
 include 'fct_session.php';
 require_once '../config/dbaccess.php';
 include 'fct_upload.php';
@@ -42,25 +43,20 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['image']) && isset($_POST
     else{
         $upload_message= '<p class="text-danger">Fehler beim hochaden: ' . $upload_result['message'] . '</p>';
     }
-
-
-
 }
-
 ?>
 
+<!-- Formular -->
 <div class="container mt-5">
     <h2 class="text-center">News-Beitrag Erstellen</h2>
 
     <?php 
     // Hier eine Erfolgs- oder Fehlermeldung ausgeben
-
     if (isset($upload_message)) {
         echo $upload_message;
     } else{
         $upload_message='';
-    }
-         
+    }    
     ?>
 
     <!-- Formular für den Bildupload -->
@@ -85,4 +81,5 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['image']) && isset($_POST
         
     </div>
 </div>
+
 <?php include 'footer.php'; ?>

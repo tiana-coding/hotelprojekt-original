@@ -1,3 +1,5 @@
+<!-- Diese Datei gibt dem Admin die Möglichkeit, Benutzername und Email eines Users zu bearbeiten. -->
+
 <?php
     include 'fct_session.php';
     include 'header.php';
@@ -66,10 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $update_stmt->close();
 }
 $stmt->close();
-
-
-
 ?>
+
+<!-- Formular -->
 <div class="container-fluid mt-5">
   <h1 class="text-center my-3">Bearbeiten</h1>
 <form method="post" action="update_user.php?user_id=<?= htmlspecialchars($user['user_id']); ?>">

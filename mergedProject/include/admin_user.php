@@ -1,3 +1,5 @@
+<!-- Diese Seite gibt dem Admin einen Überblick über alle existierenden User und leitet weiter zur Bearbeitung ebendieser. -->
+
 <?php
     include 'fct_session.php';
     include 'header.php';
@@ -16,7 +18,7 @@
  }
  
 
-//db verbinden
+//db verbinden + Fehlermeldungen
 $sql="SELECT user_id, username, status, useremail FROM users ORDER BY user_id ASC";
 $stmt=$db_obj->prepare($sql);
 
@@ -38,6 +40,8 @@ if($result->num_rows== 0){
 $stmt->close();
 
 ?>
+
+<!-- Darstellung als Tabelle -->
 <div class="container-fluid mt-5">
   <h1 class="text-center my-3">Userverwaltung</h1>
   
@@ -55,9 +59,7 @@ $stmt->close();
         </tr>
       </thead>
       <tbody>
-        <!-- syntax foreach ($array as $key => $value) {
-    // Aktionen mit $key und $value
-} -->
+        <!-- syntax foreach ($array as $key => $value) { Aktionen mit $key und $value } -->
         <?php foreach ($user_id as $index => $user): ?>
           <tr>
             <th scope="row"><?php echo $index + 1; ?></th>
