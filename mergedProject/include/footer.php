@@ -7,7 +7,7 @@
          class="nav-link px-2 text-body-secondary fw-bolder">Home</a>
         </li>
       <li class="nav-item"><a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_rooms.php'); ?>" class="nav-link px-2 text-body-secondary fw-bolder">Zimmer buchen</a></li>
-      <li class="nav-item"><a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_impressum.php'); ?>" class="nav-link px-2 text-body-secondary fw-bolder">Kontakt</a></li>
+      
       <li class="nav-item">
         <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_help.php'); ?>" class="nav-link px-2 text-body-secondary fw-bolder">FAQs</a>
       </li>
