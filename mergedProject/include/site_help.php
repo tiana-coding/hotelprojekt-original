@@ -1,10 +1,13 @@
-<?php include '../include/header.php';?>
+<!-- Diese Datei erfüllt den geforderte Hilfebereich unserer Webseite,
+ hier ist keinerlei zusätzliche Funktionalität vorhanden, nur Informationstext. -->
+
+<?php include '../include/header.php';?><!-- header (und somit navbar und session) einbinden -->
 
 <div class="container-fluid py-5 my-3 mx-auto">
     <h2>Hilfebereich</h2>
     <p class="display-7">Willkommen im Hilfebereich von Hotel Blick&Glück! Hier finden Sie alle wichtigen Informationen und Antworten auf häufig gestellte Fragen, um Ihren Aufenthalt bei uns so angenehm wie möglich zu gestalten.</p>
-    <div class="container bg-light p-5">
-
+    
+    <div class="container bg-light p-5"><!-- grauer Bereich mit den FAQs -->
         <h3 class="m-3">Häufig gestellte Fragen (FAQs)</h3>
         <ol>
             <li><b>Wie kann ich ein Zimmer buchen?</b></li>
@@ -30,8 +33,6 @@
         </ol>
         <p class="display 7">Falls Ihre Frage hier nicht beantwortet wurde, zögern Sie nicht, uns direkt zu kontaktieren. Unser Team hilft Ihnen gerne weiter!</p>
     </div>
-   
-   
 </div>
     
-  <?php include '../include/footer.php';?>
+<?php include '../include/footer.php';?><!-- footer einbinden, Seite beenden -->

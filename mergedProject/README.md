@@ -6,12 +6,32 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 ## Dateiüberblick
 
-(Hier werden im Moment nur fertig kommentierte files gelistet)
+(Hier werden im Moment nur files gelistet, die bereits in bereits kommentierten aufgetaucht sind, und daher schon auf der Liste der nächsten stehen..)
 
-- index.php
-- fct_session.php
-- header.php (not done)
+- [x] index.php
+
+### include
+
+- [ ] fct_login.php
+- [ ] fct_register.php
+- [x] fct_session.php
+- [x] footer.php
+- [x] header.php 
+- [x] navbar.php
+- [ ] site_blog.php
+- [x] site_help.php
+- [x] site_impressum.php
+
+### config
+
+- [ ] dbaccess.php
+
+### res/css
+
+- [x] styles.css
 
 ## evtl. noch zu ändern
 
 - Bilder auf Startseite responsive
+- Login & Registrierung in navbar nur für anonyme anzeigen
+- fct_login & fct_register zu site_login & site_register umbenennen (Achtung: alle links!)
