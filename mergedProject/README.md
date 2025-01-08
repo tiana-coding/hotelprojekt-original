@@ -10,7 +10,7 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 - [x] index.php
 - [x] fct_session.php
-- [] header.php 
+- [ ] header.php 
 
 ## evtl. noch zu ändern
 
