@@ -18,12 +18,12 @@
 
 - [x] a) Login-Formular vorhanden
 - [x] b) Login-Status sichtbar, Logout-Button vorhanden
-- [ ] c) Features abhängig vom eingeloggten User
+- [x] c) Features abhängig vom eingeloggten User
 
 ## 4) Profilverwaltung
 
-- [ ] a) Profildaten einsehen & bearbeiten
-- [ ] b) Passwort ändern (altes PW erforderlich)
+- [x] a) Profildaten einsehen & bearbeiten
+- [x] b) Passwort ändern (altes PW erforderlich)
 
 ## 5) News-Beiträge von Admins
 
