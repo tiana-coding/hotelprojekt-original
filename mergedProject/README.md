@@ -12,6 +12,8 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 ### include
 
+- [x] admin_reservierung.php
+- [x] admin_update_reservierung.php
 - [x] admin_user.php
 - [x] article.php
 - [x] delete_user.php
@@ -24,7 +26,9 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [x] fct_upload.php
 - [x] footer.php
 - [x] header.php 
+- [x] kontakt.php
 - [x] navbar.php
+- [x] roomcard.php
 - [x] site_blog.php
 - [x] site_dashboard.php
 - [x] site_help.php
@@ -32,7 +36,7 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [x] site_logout.php
 - [x] site_profil.php
 - [x] site_profilverwaltung.php
-- [ ] site_reservation_process.php
+- [x] site_reservation_process.php
 - [x] site_reservation.php
 - [x] site_reservationlists.php
 - [x] site_rooms.php

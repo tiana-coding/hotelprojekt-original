@@ -1,3 +1,5 @@
+<!-- ein nicht eingebundenes Kontaktformular, um mit dem Hotel in Kontakt zu treten. -->
+
 <?php include '../include/header.php';?>
 
 

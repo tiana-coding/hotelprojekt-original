@@ -1,3 +1,6 @@
+<!-- Dies hätte eine Ausgabe der einzelnen Zimmer mit Fotos und Verfügbarkeit werden sollen,
+ jede Website braucht schließlich noch Verbesserungspotential, nicht wahr? -->
+
 <?php
 
 

@@ -1,3 +1,4 @@
+<!-- Diese Datei erlaubt es dem Admin, den Status einer Reservierung zu verändern. -->
 <?php
     include 'fct_session.php';
     include 'header.php';
@@ -50,12 +51,12 @@ if($stmt->execute()){
 
 
 $stmt->close();
-
 ?>
+
+<!-- Ausgabe der Bestätigung, dass die Reservierung gültig verändert wurde. -->
 <form class="container-fluid" action="admin_reservierung.php" method="POST">
     <button class="btn btn-primary btn-sm">zurück</button>
 
 </form>
-<?php
-    include 'footer.php';
-?>    
+
+<?php include 'footer.php'; ?>

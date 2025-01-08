@@ -1,3 +1,5 @@
+<!-- Diese Seite gibt dem Admin eine Liste aller Reservierungen aus, und erlaubt das verändern von deren Status. -->
+
 <?php
     include 'fct_session.php';
     include 'header.php';
@@ -36,9 +38,10 @@ if($result->num_rows== 0){
 }
 
 $stmt->close();
-
 ?>
 
+
+<!-- Ausgabe als Tabelle -->
 <div class="container mt-5">
   <h1 class="text-center my-3">Reservierungen</h1>
   
@@ -65,9 +68,7 @@ $stmt->close();
         </tr>
       </thead>
       <tbody>
-        <!-- syntax foreach ($array as $key => $value) {
-    // Aktionen mit $key und $value
-} -->
+        <!-- syntax foreach ($array as $key => $value) { Aktionen mit $key und $value } -->
         <?php foreach ($reservations as $index => $reservation): ?>
           <tr>
             <th scope="row"><?php echo $index + 1; ?></th>
@@ -110,5 +111,5 @@ $stmt->close();
     
 </div>
 
-<?php include 'footer.php'; ?>
 
+<?php include 'footer.php'; ?>

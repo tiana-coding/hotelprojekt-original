@@ -1,9 +1,11 @@
+<!-- Diese Seite gibt aus, ob bzw. dass unsere Reservierung erfolgreich war. -->
+
 <?php
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+# klassisches Fehlermeldung setzen und alles notwendige einbinden
 include('fct_session.php');
 include('header.php');
 include('fct_reservation.php');

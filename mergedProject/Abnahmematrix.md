@@ -54,9 +54,9 @@
 
 ## 8) Reservierungsverwaltung für Admins
 
-- [ ] a) Liste aller Reservierungen anzeigen
+- [x] a) Liste aller Reservierungen anzeigen
 - [ ] b) Einzelne Reservierungen und Details anzeigen
-- [ ] c) Status der Reservierungen ändern
+- [x] c) Status der Reservierungen ändern
 - [ ] d) Filtern nach Statuswerten
 
 # Allgemeines
@@ -67,13 +67,13 @@
 - [x] CSS (+ ggf. JS) eingebunden
 - [x] Seitenbereiche mit includes eingebunden
 - [x] Projektstruktur in Komponenten unterteilt
-- [ ] Code kommentiert
-- [ ] Website responsive
+- [x] Code kommentiert
+- [x] Website responsive
 - [x] Gute Usability & Bedienbarkeit
-- [ ] Sehr gutes Design, Accessibility & SEO
+- [x] Sehr gutes Design, Accessibility & SEO
 
 ## Aufbau der Datenbank
 
 - [x] DB angelegt
 - [x] Zentrale DB-config-Datei
-- [ ] Sicherheitslücken geschlossen
+- [x] Sicherheitslücken geschlossen
