@@ -1,12 +1,19 @@
 # Hotelprojekt Liu, Harich
 
+## Zugangsdaten Datenbank
+
+- username = "root";
+- password = "Bingki!2020$!";
+- dbname = "hotelprojekt";
+
 ## Beschreibung
 
 Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlernen des Programmierens einer Website mit Datenbankanbindung. Als konkrete Aufgabe war eine Hotelwebseite zu implementieren, mit Informationsseiten wie News-Beiträgen, einem Impressum und einer Hilfeseite, sowie der Möglichkeit sich einzuloggen und erweiterter Funktionalität für registrierte User - zB. das reservieren von Zimmern oder Verwalten der eigenen Nutzerdaten. Außerdem gibt es einen admin-User, der zusätzlich in der Lage ist, direkt online die Nutzer- und Reservierungsdaten der gesamten Webseite zu bearbeiten, sowie neue Blogbeiträge zu erstellen.
+Die im Projekt vorhandenen Markdown-Files dienten der Organisation und Zusammenarbeit des Teams über Github.
 
 ## Dateiüberblick
 
-(Hier werden im Moment nur files gelistet, die bereits in bereits kommentierten aufgetaucht sind, und daher schon auf der Liste der nächsten stehen..)
+Alle Dateien mit Programmiercode, die zu diesem Projekt gehören, und ihr Status, ob sie aktiv an der abgegebenen Lösung beteiligt sind.
 
 - [x] index.php
 
@@ -26,9 +33,9 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [x] fct_upload.php
 - [x] footer.php
 - [x] header.php 
-- [x] kontakt.php
+- [ ] kontakt.php
 - [x] navbar.php
-- [x] roomcard.php
+- [ ] roomcard.php
 - [x] site_blog.php
 - [x] site_dashboard.php
 - [x] site_help.php
@@ -51,7 +58,7 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 - [x] styles.css
 
-## evtl. noch zu ändern
+## Verbesserungsvorschläge, nicht erledigt
 
 - Bilder auf Startseite responsive
 - Login & Registrierung in navbar nur für anonyme anzeigen
