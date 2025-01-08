@@ -49,7 +49,7 @@
 - [x] a.iii) Reservierungen mit Statuswerten
 - [x] b) Features (Zeitraum, Frühstück, Parkplatz, etc.)
 - [x] c) Aufpreise für Zusatzoptionen
-- [ ] d) Zimmerverfügbarkeit berücksichtigen
+- [x] d) Zimmerverfügbarkeit berücksichtigen
 - [x] e) Datum der Reservierung speichern
 
 ## 8) Reservierungsverwaltung für Admins

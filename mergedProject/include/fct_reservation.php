@@ -1,9 +1,11 @@
+<!-- Diese Datei stellt die Funktionalität für die Reservierungsseiten zur Verfügung. -->
+
 <?php
 require_once '../config/dbaccess.php';
 include('fct_session.php');
 
 if(!$db_obj){
-  die("Es besteht keine verbindung zur Datenbank.".mysqli_connect_error());
+  die("Es besteht keine Verbindung zur Datenbank.".mysqli_connect_error());
 }
 $guests = $breakfast = $pets = $parking = $notes = $check_in_date = $check_out_date = '';
 
@@ -102,7 +104,7 @@ function getAvailabilityRoomId($db_obj, $check_in_date, $check_out_date){
   return $data['room_id'] ?? null;//room_id zurückgeben oder null wenn zimmer nicht verfügbar ist
 }
 
-//hinzufügen die daten in die reservations tabelle, funktion aufrufen getAvailabilityRoomId($db_obj, $check_in_date, $check_out_date)
+//hinzufügen der daten in die reservations tabelle, funktion aufrufen getAvailabilityRoomId($db_obj, $check_in_date, $check_out_date)
 
 $room_id = getAvailabilityRoomId($db_obj, $check_in_date, $check_out_date);
 if(!$room_id){
@@ -149,12 +151,5 @@ $result=$stmt->get_result();
 $reservations=$result->fetch_all(MYSQLI_ASSOC);
 $stmt->close(); // Statement schließen
 return $reservations;
-
-
-
-
-
 }
- 
-
 ?>

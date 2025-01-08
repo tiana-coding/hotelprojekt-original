@@ -19,6 +19,7 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [x] fct_logout.php
 - [x] fct_pw_reset.php
 - [x] fct_register.php
+- [x] fct_reservation.php
 - [x] fct_session.php
 - [x] fct_upload.php
 - [x] footer.php
