@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 08. Jan 2025 um 14:40
--- Server-Version: 10.4.28-MariaDB
--- PHP-Version: 8.2.4
+-- Generation Time: Jan 08, 2025 at 10:40 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `hotelprojekt`
+-- Database: `hotelprojekt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -39,7 +39,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Daten für Tabelle `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `image_path`, `thumbnail_path`, `content`, `created_at`, `status`, `published_at`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `news` (`id`, `title`, `image_path`, `thumbnail_path`, `content`, `c
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `reservations`
+-- Table structure for table `reservations`
 --
 
 CREATE TABLE `reservations` (
@@ -73,16 +73,18 @@ CREATE TABLE `reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Daten für Tabelle `reservations`
+-- Dumping data for table `reservations`
 --
 
 INSERT INTO `reservations` (`reservation_id`, `room_id`, `username`, `check_in_date`, `check_out_date`, `guests`, `breakfast`, `children`, `pets`, `parking`, `notes`, `created_at`, `status`, `bearbeitet_von`, `bearbeitet_am`) VALUES
 (51, 1, 'student6', '2025-01-03', '2025-01-10', 3, 'mit', 'kein', 'hund', 'ja', '', '2024-12-31 04:12:43', 'bestätigt', 'admin', '2024-12-31 05:12:43'),
 (52, 2, 'student5', '2025-01-04', '2025-01-07', 1, 'mit', 'kein', 'keine', 'nein', 'test', '2024-12-31 04:55:15', 'neu', 'admin', '2024-12-31 05:55:15'),
-(53, 2, 'student6', '2024-12-31', '2025-01-03', 3, 'mit', 'kein', 'hund', 'ja', 'test', '2024-12-31 04:58:23', 'neu', 'admin', '2024-12-31 05:58:23');
+(53, 2, 'student6', '2024-12-31', '2025-01-03', 3, 'mit', 'kein', 'hund', 'ja', 'test', '2024-12-31 04:58:23', 'neu', 'admin', '2024-12-31 05:58:23'),
+(54, 2, 'tina.m', '2025-01-09', '2025-01-11', 1, 'mit', 'kein', 'keine', 'ja', 'test', '2025-01-08 20:56:18', 'bestätigt', 'admin', '2025-01-08 21:56:18'),
+(55, 3, 'tina.m', '2025-01-09', '2025-01-12', 3, 'mit', 'kein', 'keine', 'ja', '', '2025-01-08 21:16:34', 'neu', 'admin', '2025-01-08 22:16:34');
 
 --
--- Trigger `reservations`
+-- Triggers `reservations`
 --
 DELIMITER $$
 CREATE TRIGGER `after_reservation_delete` AFTER DELETE ON `reservations` FOR EACH ROW BEGIN
@@ -112,7 +114,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `rooms`
+-- Table structure for table `rooms`
 --
 
 CREATE TABLE `rooms` (
@@ -124,13 +126,13 @@ CREATE TABLE `rooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Daten für Tabelle `rooms`
+-- Dumping data for table `rooms`
 --
 
 INSERT INTO `rooms` (`room_id`, `category`, `price_per_night`, `available`, `image_path`) VALUES
 (1, 'Einzelzimmer', 80.00, 0, NULL),
 (2, 'Doppelzimmer', 120.00, 0, NULL),
-(3, 'Suite', 200.00, 1, NULL),
+(3, 'Suite', 200.00, 0, NULL),
 (4, 'Einzelzimmer', 80.00, 1, NULL),
 (5, 'Doppelzimmer', 120.00, 1, NULL),
 (6, 'Einzelzimmer', 80.00, 1, NULL),
@@ -152,7 +154,7 @@ INSERT INTO `rooms` (`room_id`, `category`, `price_per_night`, `available`, `ima
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -170,27 +172,28 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Daten für Tabelle `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `useremail`, `role`, `created_at`, `anrede`, `vorname`, `nachname`, `status`, `updated_at`) VALUES
 (8, 'admin', '$2y$10$rnR3Qd0.LZ342E.pt3AGpui0GaKrozayoz57jyZmSSNl/KqdS7Pj.', 'admin@blickglueck.at', 'admin', '2024-12-21 15:37:53', 'Frau', 'Alma', 'Hermann', 'active', '2024-12-31 02:06:16'),
-(9, 'student5', '$2y$10$6jcBIdbYfwwD9BkBT9IgJe3PzBWBTyVyCA8EvSL45KNPpFEbuAMie', 'student5@somedomain.at', 'user', '2024-12-22 14:34:52', 'Frau', 'Anja', 'Becker', 'active', '2024-12-30 01:38:05'),
-(10, 'student6', '$2y$10$HZ.P3y2zGtRC22kKff/OZOs9ijlUKreoRVEK2feCSCGgFqwiWEcxi', 'student6@somedomain.at', 'user', '2024-12-23 20:21:01', 'Herr', 'Benjamin', 'Bauer', 'active', '2024-12-31 04:08:09'),
-(14, 'Andi_3', '$2y$10$Wum3.UspWxGuYQup57UlDeIbiaF8771qUoo9L3L1Lc9wUeQ3BIMui', 'student_andi@somedomain.at', 'user', '2024-12-31 04:46:39', 'Herr', 'Andy', 'Schneider', 'inactive', '2024-12-31 04:48:15');
+(9, 'student5', '$2y$10$RyMKcygIigPgU9yE300qMOcdv1DKkPzHlMmk3zJbHr/fIru5EuHMO', 'student5@somedomain.at', 'user', '2024-12-22 14:34:52', 'Frau', 'Anja', 'Becker', 'active', '2025-01-08 21:36:09'),
+(10, 'student6', '$2y$10$t5TgiJ/obLr5fhBHSUwT/eUn961RoLdZ4D1zUJ5rmpZXkI2NMtQ12', 'student6@somedomain.at', 'user', '2024-12-23 20:21:01', 'Herr', 'Benjamin', 'Bauer', 'active', '2025-01-08 21:36:52'),
+(14, 'Andi_3', '$2y$10$1qQlSkYvz9HDeOqokoBufOYcbnQYQ9u.qZ7JzZCRk7R9EeO9BxV52', 'student_andi@somedomain.at', 'user', '2024-12-31 04:46:39', 'Herr', 'Andy', 'Schneider', 'inactive', '2025-01-08 21:37:21'),
+(15, 'tina.m', '$2y$10$GSsqlv6k7z6Br9qu8YFeDOHsGFuY.iVwn7ZOIA7OPvSuvoy7WFCTa', 'christina.m@somedomain.com', 'user', '2025-01-08 20:55:11', 'Frau', 'Christina', 'Müller', 'active', '2025-01-08 20:55:11');
 
 --
--- Indizes der exportierten Tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indizes für die Tabelle `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `reservations`
+-- Indexes for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`reservation_id`),
@@ -198,13 +201,13 @@ ALTER TABLE `reservations`
   ADD KEY `fk_username` (`username`);
 
 --
--- Indizes für die Tabelle `rooms`
+-- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`room_id`);
 
 --
--- Indizes für die Tabelle `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
@@ -212,39 +215,39 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `useremail` (`useremail`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT für Tabelle `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT für Tabelle `reservations`
+-- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
--- AUTO_INCREMENT für Tabelle `rooms`
+-- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT für Tabelle `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- Constraints der exportierten Tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Constraints der Tabelle `reservations`
+-- Constraints for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `fk_room_id` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`) ON DELETE CASCADE ON UPDATE CASCADE,
