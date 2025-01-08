@@ -24,6 +24,8 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [x] site_help.php
 - [x] site_impressum.php
 - [x] site_logout.php
+- [x] site_profil.php
+- [x] site_profilverwaltung.php
 
 ### config
 

@@ -1,5 +1,6 @@
-<?php
+<!-- Diese Datei liefert das Formular, um die eigenen Nutzerdaten zu ändern -->
 
+<?php
 include('header.php');
 include('../config/dbaccess.php');
 
@@ -70,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 
-//if error ist empty kundendaten wurden erfolgreich geändert/aktuellisert, meldung für erfolgreiche änderung.
+//if error ist empty kundendaten wurden erfolgreich geändert/aktualisert, meldung für erfolgreiche änderung.
 
 if(empty($errors)){
 
@@ -157,7 +158,6 @@ if(empty($errors)){
             <button type= "submit" class="btn btn-primary mt-5">speichern</button>
         </div>
         
-    
     </form>
 
 </div>   

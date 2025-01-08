@@ -1,3 +1,4 @@
+<!-- Diese Datei bringt die Funktionalität zum Einsehen der eigenen Nutzerdaten, bei eingeloggten Usern -->
 
 <?php
 include ('fct_session');
@@ -28,9 +29,7 @@ if($result->num_rows > 0){
 
 ?>
 
-
-    
-    
+ <!-- Tabelle mit Daten -->
     <div class="container">
       <h3 class="text-center mt-3 pt-3">Kundendaten</h3>
     </div> 
@@ -65,9 +64,5 @@ if($result->num_rows > 0){
      
     </div>
   </div>
-    
-
-
-
 
 <?php include('footer.php'); ?>
