@@ -26,15 +26,23 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['image']) && isset($_POST
         $image_path = $upload_result['image_path'];
         $thumbnail_path = $upload_result['thumbnail_path'];
 
-        $sql= "INSERT INTO news (title, content, image_path, thumbnail_path, status, created_at) 
-        VALUES('$title', '$content', '$image_path', '$thumbnail_path', '$status', NOW())";
-    if($db_obj->query($sql)){
+        //prepared statement fuer die sql-abfrage
+        $stmt=$db_obj->prepare("INSERT INTO news (title, content, image_path, thumbnail_path, status, created_at) 
+        VALUES(?, ?, ?, ?, ?, NOW())");
+    $stmt->bind_param("sssss",$title, $content, $image_path, $thumbnail_path, $status);
+
+    if($stmt->execute()){
         $upload_message= '<p class="text-success">News-beitrag erstellt.</p>';
     } else{
         $upload_message= '<p class="text-danger">News-beitrag kann nicht erstellt werden. Fehler' . $upload_result['message'] . '</p>';
     }
+    $stmt->close();
 
     }
+    else{
+        $upload_message= '<p class="text-danger">Fehler beim hochaden: ' . $upload_result['message'] . '</p>';
+    }
+
 
 
 }
