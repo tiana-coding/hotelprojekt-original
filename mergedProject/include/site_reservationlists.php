@@ -1,7 +1,7 @@
 <?php
 include 'fct_session.php';
 require_once'../config/dbaccess.php';
-include('fct_reservation.php');
+
 include 'header.php';
 
 //falls es noch kein session existiert
