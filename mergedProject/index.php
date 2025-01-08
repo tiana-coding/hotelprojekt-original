@@ -5,7 +5,7 @@
 <?php include 'include/fct_session.php';?>
 <?php include 'include/header.php';?>
 
-  <!-- First look at the page -->
+<!-- großes Headerfoto mit Knöpfen, die zum Blog und zur Zimmerreservierung führen -->
 <div class="container-fluid hero">
   
   <div class="hero-content text-center text-white py-5 w-100">
@@ -26,10 +26,7 @@
   </div>
 </div> 
 
-<!-- divider-->
-
-<!-- divider-->
-<!-- Hotel Fotos/protfolio - THIS NEEDS REWORKING -->
+<!-- netter Bereich mit einigen Hotelfotos -->
 <div class="container-fluid bg-primary py-5">
 
     <div class="container text-center d-flex justify-content-center align-items-center">
@@ -78,9 +75,7 @@
     </div>
 </div>
 
-
-<!-- Hotel Fotos/protfolio - TAKE A LOOK -->
-<!--kontakt/location-->
+<!-- Einbindung einer Google-Maps Karte für den Hotel-Standort -->
 <div class="container text-center my-2">
    
     <h2 class="text-center display-6 fw-bold mt-5">Location</h2>

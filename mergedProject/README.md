@@ -8,5 +8,9 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 (Hier werden im Moment nur fertig kommentierte files gelistet)
 
-- index.php (just so that there's a list already)
+- index.php
 
+
+## evtl. noch zu ändern
+
+- Bilder auf Startseite responsive
