@@ -42,7 +42,7 @@
             <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr. Die Nutzung der Inhalte der Website erfolgt auf eigene Gefahr des Nutzers.</p>
         
             <p>Online-Streitbeilegung:</p> 
-            <p>Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten: http://ec.europa.eu/odr. Sie können allfällige Beschwerden auch an die oben angegebene E-Mail-Adresse richten.</p>
+            <p>Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten: https://ec.europa.eu/odr. Sie können allfällige Beschwerden auch an die oben angegebene E-Mail-Adresse richten.</p>
         
             
         </div>
