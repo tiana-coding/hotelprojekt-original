@@ -6,14 +6,14 @@
         <h2 class="py-3 my-3">Hotel Blick&Glück GmbH</h2>
         <div class="container-fluid d-flex justify-content-start gap-3">
             <div class="card bg-grey mb-3" style="max-width: 15rem;">
-                <img class="card_img"  src="../res/assets/img/yueting_liu.jpg" alt="manager">
+                <img class="card_img"  src="../res/assets/img/yueting_liu.jpg" alt="manager1">
                 <div class="card_caption">
                     <p class="text-center justify-content-center pt-1">Yueting Liu</p>
                     <p class="text-center justify-content-center">Geschäftsführerin</p>
                 </div>    
             </div>
             <div class="card bg-grey mb-3" style="max-width: 15rem;">
-                <img class="card_img"  src="../res/assets/img/harich-franziska.jpg" alt="manager">
+                <img class="card_img"  src="../res/assets/img/harich-franziska.jpg" alt="manager2">
                 <div class="card_caption">
                     <p class="text-center justify-content-center pt-1">Franziska Harich</p>
                     <p class="text-center justify-content-center">Geschäftsführer Stellvertreterin</p>
