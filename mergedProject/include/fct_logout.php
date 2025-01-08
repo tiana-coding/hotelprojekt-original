@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
 # zuerst Fehlermeldungen setzen, danach session und header einbinden
 include '../include/fct_session.php';
-include '../include/header.php'; 
+ 
 
 
 // Logout-Mechanismus
@@ -17,6 +17,7 @@ if (isset($_GET['logout'])&& $_GET['logout']=='true') {
     header("Location:../index.php?logout=success"); 
     exit();
 }
+include '../include/header.php';
 
 ?>
 
