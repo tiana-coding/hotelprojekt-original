@@ -1,5 +1,8 @@
-<?php include 'include/fct_session.php';?>
+<!-- Diese Datei ist der Startpunkt unseres Projektes, hier ist die Startseite ausprogrammiert,
+  wobei session, header und footer als wiederkehrende Funktionen/Teile eingebungen werden. -->
 
+<!-- session und header einbinden, so wie überall -->
+<?php include 'include/fct_session.php';?>
 <?php include 'include/header.php';?>
 
   <!-- First look at the page -->
@@ -92,7 +95,6 @@
         </div>
       </div>
 </div>
-<!--kontakt/location-->
 
-<!-- Copyright Section-->
+<!-- Footer einbinden -->
 <?php include 'include/footer.php';?>

@@ -1,44 +1,12 @@
-# Merged Project
+# Hotelprojekt Liu, Harich
 
-## benutzte Dateien
+## Beschreibung
 
-Nach dem Dateinamen hab ich ein (Y) für Yueting und ein (F) für Franziska angehängt, damit wir uns in dieser Liste auskennen
+Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlernen des Programmierens einer Website mit Datenbankanbindung. Als konkrete Aufgabe war eine Hotelwebseite zu implementieren, mit Informationsseiten wie News-Beiträgen, einem Impressum und einer Hilfeseite, sowie der Möglichkeit sich einzuloggen und erweiterter Funktionalität für registrierte User - zB. das reservieren von Zimmern oder Verwalten der eigenen Nutzerdaten. Außerdem gibt es einen admin-User, der zusätzlich in der Lage ist, direkt online die Nutzer- und Reservierungsdaten der gesamten Webseite zu bearbeiten, sowie neue Blogbeiträge zu erstellen.
 
-- index.php (Y)
-- nav.php (Y)
-- hilfeseite.php (Y)
-- impressum.php (Y)
-- footer.php (Y)
-- header.php (Y)
-- blog.php (Y)
-- fct_login.php (F)
-- fct_register.php (F)
-- fct_session.php (F)
+## Dateiüberblick
 
-## Änderungen
+(Hier werden im Moment nur fertig kommentierte files gelistet)
 
-### Franziska 18.12.24
+- index.php (just so that there's a list already)
 
-- Impressum vervollständigt
-- Blog (hardcoded) zum laufen gebracht
-- Datenbank an dem Ende zum laufen gebracht
-
-### Yueting 18.12.24
-
-- mit Datenbank verbunden
-- uploads Ordner hinzugefügt
-- Blog hinzugefügt
-- Ordner pages angelegt
-- login page & register page hinzugefügt
-
-### Franziska 17.12.24
-
-- nav.php: Pfad für index.php geändert
-- footer.php: Pfad für index.php geändert
-- header.php: styles.css als absoluten Pfad eingebunden, jetzt passt es auch bei Impressum und Hilfe
-
-### Franziska 16.12.24
-
-- index.php: Pfad zu den Bildern korrigiert
-- footer.php: Pfad zu Hilfe und Impressum geändert
-- hilfe.php: footer eingebunden
