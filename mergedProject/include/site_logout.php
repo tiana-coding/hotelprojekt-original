@@ -1,3 +1,5 @@
+<!-- Diese Datei ist verantwortlich für das Formular zum ausloggen auf der Website -->
+
 <?php include('fct_session.php'); ?>
 
 <!DOCTYPE html>

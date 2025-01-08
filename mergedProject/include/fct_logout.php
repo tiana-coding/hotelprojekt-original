@@ -1,8 +1,10 @@
+<!-- Diese Datei ist verantwortlich für die Funktionalität zum ausloggen von der Website -->
+
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-;
+# zuerst Fehlermeldungen setzen, danach session und header einbinden
 include '../include/fct_session.php';
 include '../include/header.php'; 
 
@@ -48,9 +50,4 @@ if (isset($_GET['logout'])&& $_GET['logout']=='true') {
 </div>
 
 
-
-
-<?php 
-// Footer einbinden
-include '../include/footer.php';
-?>
+<?php include '../include/footer.php';?><!-- footer einbinden, Seite beenden -->
