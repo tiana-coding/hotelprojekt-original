@@ -1,11 +1,10 @@
+<!-- Diese Seite zeigt eingeloggten Usern das Formular zum erstellen von Zimmerreservierungen, und anonymen Usern eine Fehlermeldung. -->
+
 <?php
-
-
 include('fct_session.php');
 include('header.php');
-
-
 ?>
+
 <!-- Formular für die Zimmerreservierung -->   
     <div class="container mt-4 pt-4 min-vh-100">
         <h1 class="text-center pt-4">Zimmerreservierung</h1>
@@ -78,5 +77,5 @@ include('header.php');
         </form>
     
     </div>
+    
 <?php include('footer.php');?>
-

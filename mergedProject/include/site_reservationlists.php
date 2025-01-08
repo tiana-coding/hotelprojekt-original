@@ -1,3 +1,6 @@
+<!-- Diese Seite gibt nicht nur wie site_reservation.php die neuste Reservierung eines Users aus,
+ sondern eine Tabelle mit allen vergangenen Reservierungen. -->
+
 <?php
 include 'fct_session.php';
 require_once'../config/dbaccess.php';
@@ -26,8 +29,9 @@ $stmt->bind_param("s", $username);
 $stmt->execute();
 $reservations=$stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
-
 ?>
+
+
 <!-- Reservierungsliste ausgeben -->
 <div class="container mt-5">
   <h1 class="text-center my-3">Ihre Reservierungen</h1>
