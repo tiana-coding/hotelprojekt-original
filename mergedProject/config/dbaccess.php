@@ -1,4 +1,7 @@
+<!-- Diese Datei verbindet unsere Website mit der SQL Datenbank -->
+
 <?php
+# hardcoded Zugang zur lokalen Datenbank
 $servername = "localhost";
 $username = "root";
 $password = "Bingki!2020$!";

@@ -13,7 +13,7 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 ### include
 
 - [ ] fct_login.php
-- [ ] fct_register.php
+- [x] fct_register.php
 - [x] fct_session.php
 - [x] footer.php
 - [x] header.php 
@@ -24,7 +24,7 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 ### config
 
-- [ ] dbaccess.php
+- [x] dbaccess.php
 
 ### res/css
 
@@ -35,3 +35,4 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - Bilder auf Startseite responsive
 - Login & Registrierung in navbar nur für anonyme anzeigen
 - fct_login & fct_register zu site_login & site_register umbenennen (Achtung: alle links!)
+    - fct_register aufteilen in Funktion und Seite (Seite beginnt in Zeile 87?)

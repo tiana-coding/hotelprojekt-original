@@ -9,14 +9,10 @@
 
 ## 2) Registrierung
 
-- [ ] a) Formular enthält alle geforderten Daten
-    - jep, läuft
-- [ ] b) Client- & serverseitige Datenüberprüfung
-    - I mean it works, so I guess yes
-- [ ] c) Passwort doppelt eingeben und verschlüsseln
-    - funktioniert
-- [ ] d) Admin-User & Rechteunterscheidung
-    - not yet
+- [x] a) Formular enthält alle geforderten Daten
+- [x] b) Client- & serverseitige Datenüberprüfung
+- [x] c) Passwort doppelt eingeben und verschlüsseln
+- [x] d) Admin-User & Rechteunterscheidung
 
 ## 3) User-Login
 

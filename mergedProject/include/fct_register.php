@@ -1,9 +1,10 @@
 <?php 
+# Fehlersetting, wie in session
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include 'fct_session.php';
+include 'fct_session.php'; # einbinden der session
 
 $error_msg = "";
 $success_msg = "";
@@ -37,8 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<p class='text-danger'>Ungültige E-Mail-Adresse.</p>";
     } else {
         //Validierung erfolgreich -> DB-Zugriff Prepared Statements
-
-
         // Passwort sicher Hashen
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -65,8 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               $_SESSION['username']=$username;
               header("Location: ../include/fct_login.php?success=registered");
               exit();
-            
-    
            } else{
             $error_msg="Die Registrierung ist fehlgeschlagen, versuchen Sie es noch mal.";
            }
@@ -74,22 +71,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            $stmt_insert->close();
         }
         $stmt_check->close();
-
-
-
-
-  
-    }
-    
+    }   
 }
 ?>
 
+
+
+
 <!-- Sign up/Registrierungsformular -->
-<?php include '../include/header.php';?>
+<?php include '../include/header.php';?><!-- header (und somit navbar und session) einbinden -->
 
 <div  class="container-fluid my-5" style= "max-width:640px;">
   <h2 class="text-center">Kundenregistrierung</h2>
-  <!-- registrierung fehlgeschlagen, fehlermeldung -->
+  <!-- Im Fehlerfall: Registrierung fehlgeschlagen, Fehlermeldung -->
   <?php if(!empty($error_msg)): ?>
     <div class="alert alert-danger"><?php echo $error_msg;?></div>
   <?php endif;?> 
@@ -100,23 +94,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- formular -->
   <form class="container border rounded bg-grey border-shadow py-5 my-5" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-  <div class="mb-3">
-  <label for="anrede" class="form-label">Anrede</label>
-  <select name="anrede" id="anrede" class="florm-select" required>
-    <option value="Herr">Herr</option>
-    <option value="Frau">Frau</option>
-  </select>
-  </div>
-  <div class="mb-3">
+    <div class="mb-3">
+    <label for="anrede" class="form-label">Anrede</label>
+    <select name="anrede" id="anrede" class="florm-select" required>
+      <option value="Herr">Herr</option>
+      <option value="Frau">Frau</option>
+    </select>
+    </div>
+    <div class="mb-3">
       <label for="vorname" class="form-label">Vorname</label>
-      <input type="text" class="form-control" id="vorname" name="vorname" required>
-      
-  </div>
-  <div class="mb-3">
+      <input type="text" class="form-control" id="vorname" name="vorname" required>  
+    </div>
+    <div class="mb-3">
       <label for="nachname" class="form-label">Nachname</label>
       <input type="text" class="form-control" id="nachname" name="nachname" required>
-  </div>
-  
+    </div>
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
       <input type="text" class="form-control" id="username" name="username" required>
@@ -137,4 +129,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </form>
 </div>  
 
-  <?php include '../include/footer.php';?>
+<?php include '../include/footer.php';?><!-- footer einbinden, Seite beenden -->
