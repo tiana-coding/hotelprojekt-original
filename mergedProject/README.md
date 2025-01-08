@@ -9,13 +9,25 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 (Hier werden im Moment nur files gelistet, die bereits in bereits kommentierten aufgetaucht sind, und daher schon auf der Liste der nächsten stehen..)
 
 - [x] index.php
+
+### include
+
 - [x] fct_session.php
-- [x] header.php 
 - [x] footer.php
-- [ ] navbar.php
-- [ ] styles.css
+- [x] header.php 
+- [x] navbar.php
+- [ ] site_help.php
+- [ ] site_impressum.php
+
+### config
+
+- [ ] dbaccess.php
+
+### res/css
+
+- [x] styles.css
 
 ## evtl. noch zu ändern
 
 - Bilder auf Startseite responsive
-- nutzen wir style.css eigentlich überhaupt? Wenn ja, wo, wenn nein, Beschreibung von header.php ändern
+- Login & Registrierung in navbar nur für anonyme anzeigen
