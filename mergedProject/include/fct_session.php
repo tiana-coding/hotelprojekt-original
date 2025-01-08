@@ -9,7 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
 if (isset($_SESSION['role']) || isset($_SESSION['username'])) {
-    $welcomeMessage = "Willkommen, " . $_SESSION['username'] . "!";
+    $welcomeMessage = isset($_SESSION['username']) ? "Willkommen, " . $_SESSION['username'] . "!" : "Willkommen, Gast!";
     $loggedIn = true;
 } if (!isset($_SESSION['role'])) {
     $_SESSION['role'] = 'anonym';
