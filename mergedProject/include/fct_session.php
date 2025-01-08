@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 
-if (isset($_SESSION['role'])|| isset($_SESSION['username'])) {
+if (isset($_SESSION['role']) || isset($_SESSION['username'])) {
     $welcomeMessage = "Willkommen, " . $_SESSION['username'] . "!";
     $loggedIn = true;
 } if (!isset($_SESSION['role'])) {
