@@ -66,7 +66,8 @@ function handleImageUpload(){
                     
             }
             
-            //php funktion move_uploaded_file
+            /*php funktion move_uploaded_file, __DIR__ ist eine Magic Constant in PHP, die den vollständigen absoluten Pfad des Verzeichnisses zurückgibt, in dem das aktuell ausgeführte Skript liegt.*/
+            
             if (!move_uploaded_file($image_tmp, __DIR__ . '/../' . $image_path)) {
                 return [
                     'success'=> false,
