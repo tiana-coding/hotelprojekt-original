@@ -2,18 +2,10 @@
 
 ## 1) Hilfe/Impressum
 
-- [ ] a) Hilfeseite mit Benutzeranleitung bzw. FAQs ist vorhanden
-    - ~~vorhanden, aber style passt nicht~~
-    - läuft!
-- [ ] b) Impressum mit sinnvollem Inhalt ist angelegt
-    - ~~gleiches style Problem wie oben~~
-    - läuft!
-- [ ] c) Impressum enthält Bilder und Namen der Studierenden
-    - Yueting ja, ~~Franziska nein - nächste Baustelle~~
-    - läuft!
-- [ ] d) Hilfe & Impressum sind jederzeit (einfach) erreichbar
-    - ja, liegen im footer.php - ~~fast, Link geht nur von index.php aus~~
-    - läuft!
+- [x] a) Hilfeseite mit Benutzeranleitung bzw. FAQs ist vorhanden
+- [x] b) Impressum mit sinnvollem Inhalt ist angelegt
+- [x] c) Impressum enthält Bilder und Namen der Studierenden
+- [x] d) Hilfe & Impressum sind jederzeit (einfach) erreichbar
 
 ## 2) Registrierung
 
