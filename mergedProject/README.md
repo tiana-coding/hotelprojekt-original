@@ -12,15 +12,18 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 ### include
 
-- [ ] fct_login.php
+- [x] fct_login.php
+- [ ] fct_logout.php
 - [x] fct_register.php
 - [x] fct_session.php
 - [x] footer.php
 - [x] header.php 
 - [x] navbar.php
 - [ ] site_blog.php
+- [x] site_dashboard.php
 - [x] site_help.php
 - [x] site_impressum.php
+- [x] site_logout.php
 
 ### config
 
@@ -36,3 +39,5 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - Login & Registrierung in navbar nur für anonyme anzeigen
 - fct_login & fct_register zu site_login & site_register umbenennen (Achtung: alle links!)
     - fct_register aufteilen in Funktion und Seite (Seite beginnt in Zeile 81)
+- site_logout mit header.php noch kürzer machen, dafür footer einbinden
+- sidebar im Dashboard etwas schöner machen

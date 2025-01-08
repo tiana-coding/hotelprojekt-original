@@ -1,3 +1,5 @@
+<!-- Diese Datei ist verantwortlich für die Funktionalität und das Formular zum registrieren neuer Benutzer. -->
+
 <?php 
 # Fehlersetting, wie in session
 ini_set('display_errors', 1);

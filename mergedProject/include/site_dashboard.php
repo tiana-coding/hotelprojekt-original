@@ -1,8 +1,10 @@
-  
+<!-- Diese Seite bildet ein Dashboard für eingeloggte Benutzer, mit unterschiedlichen Funktionen,
+  je nachdem, ob es sich um einen Standardnutzer oder Admin handelt. -->
+
 <?php
  include 'fct_session.php';       
  include 'header.php';
-                
+# einbinden und session starten
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
@@ -13,7 +15,8 @@ if (!isset($_SESSION['username'])) {
 }
   $username=$_SESSION['username'];
 ?>
-           
+
+    <!-- Linkliste als Sidebar links -->    
     <div class="container-fluid">
       <div class="row vh-100">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar pt-5">
@@ -82,10 +85,4 @@ if (!isset($_SESSION['username'])) {
       
     </div>        
 
-
-  
-                
-
-<?php include 'footer.php'; ?>     
-                
-                
+<?php include 'footer.php'; ?><!-- footer einbinden, Seite beenden -->
