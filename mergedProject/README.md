@@ -6,12 +6,16 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 ## Dateiüberblick
 
-(Hier werden im Moment nur fertig kommentierte files gelistet)
+(Hier werden im Moment nur files gelistet, die bereits in bereits kommentierten aufgetaucht sind, und daher schon auf der Liste der nächsten stehen..)
 
 - [x] index.php
 - [x] fct_session.php
-- [ ] header.php 
+- [x] header.php 
+- [ ] footer.php
+- [ ] navbar.php
+- [ ] style.css
 
 ## evtl. noch zu ändern
 
 - Bilder auf Startseite responsive
+- nutzen wir style.css eigentlich überhaupt? Wenn ja, wo, wenn nein, Beschreibung von header.php ändern
