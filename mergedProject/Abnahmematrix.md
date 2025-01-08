@@ -16,12 +16,9 @@
 
 ## 3) User-Login
 
-- [ ] a) Login-Formular vorhanden
-    - jep, hab'n wir
+- [x] a) Login-Formular vorhanden
 - [ ] b) Login-Status sichtbar, Logout-Button vorhanden
-    - Button vorhanden, Funktionalität noch nicht
 - [ ] c) Features abhängig vom eingeloggten User
-    - not yet
 
 ## 4) Profilverwaltung
 

@@ -12,7 +12,8 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 
 ### include
 
-- [ ] fct_login.php
+- [x] fct_login.php
+- [ ] fct_logout.php
 - [x] fct_register.php
 - [x] fct_session.php
 - [x] footer.php
@@ -21,6 +22,7 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - [ ] site_blog.php
 - [x] site_help.php
 - [x] site_impressum.php
+- [ ] site_logout.php
 
 ### config
 
