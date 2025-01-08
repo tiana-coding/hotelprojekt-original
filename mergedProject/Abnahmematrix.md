@@ -16,25 +16,51 @@
 
 ## 3) User-Login
 
-- a) Login-Formular vorhanden
+- [ ] a) Login-Formular vorhanden
     - jep, hab'n wir
-- b) Login-Status sichtbar, Logout-Button vorhanden
+- [ ] b) Login-Status sichtbar, Logout-Button vorhanden
     - Button vorhanden, Funktionalität noch nicht
-- c) Features abhängig vom eingeloggten User
+- [ ] c) Features abhängig vom eingeloggten User
     - not yet
 
 ## 4) Profilverwaltung
 
-- a) Profildaten einsehen & bearbeiten
-- b) Passwort ändern (altes PW erforderlich)
+- [ ] a) Profildaten einsehen & bearbeiten
+- [ ] b) Passwort ändern (altes PW erforderlich)
 
 ## 5) News-Beiträge von Admins
 
+- [ ] a) Beiträge mit Bildern anzeigen (neueste oben)
+- [ ] b) Nur Bilddateien-Upload erlaubt
+- [ ] b.i) Bilder verkleinern & Thumbnails darstellen
+- [ ] c) Übersichtliche Darstellung der Beiträge
+- [ ] d) Datum der Beiträge anzeigen
+
 ## 6) Userverwaltung für Admins
+
+- [ ] a) Liste aller User anzeigen
+- [ ] b) Profilbearbeitung aller User
+- [ ] c) Passwörter der User ändern
+- [ ] d) Userstatus aktiv/inaktiv ändern
+- [ ] e) Inaktive User können nicht einloggen
+- [ ] f) Reservierungsdetails anzeigen
 
 ## 7) Zimmer reservieren
 
+- [ ] a.i) Neue Reservierung anlegen
+- [ ] a.ii) Liste eigener Reservierungen anzeigen
+- [ ] a.iii) Reservierungen mit Statuswerten
+- [ ] b) Features (Zeitraum, Frühstück, Parkplatz, etc.)
+- [ ] c) Aufpreise für Zusatzoptionen
+- [ ] d) Zimmerverfügbarkeit berücksichtigen
+- [ ] e) Datum der Reservierung speichern
+
 ## 8) Reservierungsverwaltung für Admins
+
+- [ ] a) Liste aller Reservierungen anzeigen
+- [ ] b) Einzelne Reservierungen und Details anzeigen
+- [ ] c) Status der Reservierungen ändern
+- [ ] d) Filtern nach Statuswerten
 
 # Allgemeines
 

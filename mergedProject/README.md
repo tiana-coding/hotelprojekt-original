@@ -35,4 +35,4 @@ Dieses Projekt im Rahmen der Lehrveranstaltung Webtechnologien diente dem Erlern
 - Bilder auf Startseite responsive
 - Login & Registrierung in navbar nur für anonyme anzeigen
 - fct_login & fct_register zu site_login & site_register umbenennen (Achtung: alle links!)
-    - fct_register aufteilen in Funktion und Seite (Seite beginnt in Zeile 87?)
+    - fct_register aufteilen in Funktion und Seite (Seite beginnt in Zeile 81)
