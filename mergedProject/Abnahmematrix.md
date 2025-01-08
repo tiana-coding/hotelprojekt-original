@@ -51,6 +51,6 @@
 
 ## Aufbau der Datenbank
 
-- [ ] DB angelegt
-- [ ] Zentrale DB-config-Datei
+- [x] DB angelegt
+- [x] Zentrale DB-config-Datei
 - [ ] Sicherheitslücken geschlossen
