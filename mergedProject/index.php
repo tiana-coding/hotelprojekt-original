@@ -10,12 +10,11 @@
   
   <div class="hero-content text-center text-white py-5 w-100">
     <div class="container">
-
         <h1 class="display-5 fw-bold">Blick and Glück</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4 display-7 fw-bold">Resort und SPA Hotel</p>
         </div> 
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> <!-- Link-Buttons -->
             <button type="button" class="btn btn-primary btn-lg fw-bolder px-4">
               <a href="<?php echo str_replace($_SERVER['DOCUMENT_ROOT'], '', $_SERVER['DOCUMENT_ROOT'] . '/hotelprojekt-original/mergedProject/include/site_blog.php'); ?>" class="text-center text-white text-decoration-none">Mehr erfahren</a>
             </button>
